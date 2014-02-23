@@ -1,0 +1,58 @@
+html, body {
+    height: 100%;
+}
+#contenedor {
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    background-image: url("http://cristianhernandez.1nica.com/img/pattern_white.jpg");
+}
+#footer{
+    height: auto;
+    background: url("http://cristianhernandez.1nica.com/img/footer.jpg") ;
+}
+/* Marcadores Sociales */
+ul#marcadores{
+margin: 20px auto 0;
+padding: 5px 0 0 0;
+width: 250px;
+height: 144px;
+}
+ul#marcadores li {
+list-style-type: none;
+margin : 0;
+padding: 0;
+float: left;
+}
+#marcadores li a{
+background: url(http://cristianhernandez.1nica.com/img/logo.fw.png) no-repeat 0 0;
+margin: 0;
+padding: 0;
+display: block;
+width:  60px; /*El ancho del bloque con el icono*/
+height:  60px; /*El alto del bloque con el icono*/
+}
+#marcadores li a.facebook{
+background-position: 0 0; /*la posición del icono del feed*/
+}
+#marcadores li a.twitter{
+background-position: -60px 0; /*la posición del icono de Twitter*/
+}
+#marcadores li a.instagram {
+background-position: -120px 0; /*la posición del icono de Facebook*/
+}
+#marcadores li a.youtube {
+background-position: -180px 0; /*la posición del icono de Youtube*/
+}
+#marcadores li a.facebook:hover{
+background-position: 0 -60px; /*la posición del ícono del Feed del efecto hover*/
+}
+#marcadores li a.twitter:hover{
+background-position: -60px -60px; /*la posición del icono de Twitter del efecto hover*/
+}
+#marcadores li a.instagram:hover {
+background-position: -120px -60px; /*la posición del icono de facebook del efecto hover*/
+}
+#marcadores li a.youtube:hover {
+background-position: -180px -60px; /*la posición del icono de youtube del efecto hover*/
+}

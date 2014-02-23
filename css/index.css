@@ -1,0 +1,21 @@
+#contacto {
+background-image: url('http://cristianhernandez.1nica.com/img/2.png');
+width: 100%;
+height: auto;
+}
+
+/* Div de la pagina principal nosotros */
+#nosotros {
+background:#4DC5DD;
+width: 100%;
+height: auto;
+margin-top: 2px;
+
+}
+
+#marketing{
+width: 100%;
+height: auto;
+background-image: url('http://cristianhernandez.1nica.com/img/pattern_white.jpg');
+}
+

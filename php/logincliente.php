@@ -35,7 +35,8 @@ while($fila=mysql_fetch_array($consulta5))
 	
 	session_destroy();
 	
-	echo '<meta http-equiv="refresh" content="5; url=../index.php">';
+	
+	
 }
 else
 	{	

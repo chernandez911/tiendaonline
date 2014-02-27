@@ -1,9 +1,16 @@
+<?php session_start();
+
+if(!isset($_SESSION['contador']))
+{	
+	$_SESSION['contador']=0;
+}
+?>
+
 <?php 
 include ("../config/config.php");
-include("cabecera.php");
 
 $contador=0;	
-$consulta=mysql_query("select *from clientes WHERE usuario='".$_REQUEST['usuario']."' AND contrasena='".$_REQUEST['contrasena']."'");
+$consulta=mysql_query("select *from clientes WHERE usuario='".$_POST['usuario']."' AND contrasena='".$_POST['contrasena']."'");
 
 while($fila=mysql_fetch_array($consulta))
 {
@@ -35,7 +42,7 @@ while($fila=mysql_fetch_array($consulta5))
 	
 	session_destroy();
 	
-	
+	echo '<meta http-equiv="refresh" content="2; url=../index2.php">';
 	
 }
 else
@@ -47,5 +54,4 @@ else
 	}
 		
 	mysql_close($conexion);
-include"piedepagina.php" ;
 ?>

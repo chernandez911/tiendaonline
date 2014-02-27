@@ -1,12 +1,6 @@
-<?php include"../config/config.php";  ?>
+<?php include"/config/config.php";  ?>
 
-<?php session_start();
 
-if(!isset($_SESSION['contador']))
-{	
-	$_SESSION['contador']=0;
-}
-?>
 <!doctype html>
 <html lang="es">
 <head>
@@ -90,7 +84,7 @@ if(!isset($_SESSION['contador']))
              <div id="carrito"></div>
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-default" data-dismiss="modal">Seguir cmprando</button>
+              <button type="button" class="btn btn-default" data-dismiss="modal">Seguir comprando</button>
                <a href="php/vaciarcarrito.php" >Vaciar Carrito</a></button>
               <a href="confirmar.php" >Comprar</a></button>
             </div>

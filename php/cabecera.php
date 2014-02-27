@@ -1,3 +1,5 @@
+<?php include"../config/config.php";  ?>
+
 <?php session_start();
 
 if(!isset($_SESSION['contador']))
@@ -58,7 +60,7 @@ if(!isset($_SESSION['contador']))
 		<div class="col-md-3 col-xs-6 col-sm-2">
     <div class="list-group">
        <a class='list-group-item active'>Categorias</a></li>
-        <?php include"config/config.php"; 
+        <?php 
                 $consulta=mysql_query("SELECT categoria.id, categoria.nombre_categoria, COUNT(id_categoria)FROM productos 
                   LEFT JOIN categoria ON productos.id_categoria = categoria.id
                   GROUP BY id_categoria ORDER BY COUNT( id_categoria ) DESC"); 

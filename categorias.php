@@ -26,6 +26,8 @@ while($fila2=mysql_fetch_array($consulta2))
   echo"</div>";
 }
 mysql_close();
+
+
 ?>
 </div>
 </div>

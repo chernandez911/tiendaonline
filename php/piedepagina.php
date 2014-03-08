@@ -24,16 +24,9 @@
 </body>
 </html>
 <?php 
+include("/config/config.php");
 
-$servidor="localhost";
-$usuario="root";
-$contrasena="";
-$bd="tiendaonline";
-
-$conexion=mysql_connect($servidor,$usuario,$contrasena) or die ('No se puede conectar a la base de Datos');
-$basededatos=mysql_select_db($bd,$conexion) or die ('No existe conexion con la base de datos');
-	
-$consulta=mysql_query("insert into registros values ('".date('U')."',
+$consulta=$conn->Execute("INSERT INTO registros VALUES ('".date('U')."',
 '".date('Y')."',
 '".date('m')."',
 '".date('d')."',
@@ -42,7 +35,6 @@ $consulta=mysql_query("insert into registros values ('".date('U')."',
 '".date('s')."',
 '".$_SERVER['REMOTE_ADDR']."',
 '".$_SERVER['HTTP_USER_AGENT']."',
-'".$_SERVER['REQUEST_URI']."')");
+'".$_SERVER['REQUEST_URI']."')");	
 
-mysql_close($conexion);
 ?>

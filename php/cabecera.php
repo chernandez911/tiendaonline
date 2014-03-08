@@ -1,6 +1,11 @@
 <?php include"/config/config.php";  ?>
+<?php session_start();
 
-
+if(!isset($_SESSION['contador']))
+{ 
+  $_SESSION['contador']=0;
+}
+ ?>
 <!doctype html>
 <html lang="es">
 <head>
@@ -55,14 +60,15 @@
     <div class="list-group">
        <a class='list-group-item active'>Categorias</a></li>
         <?php 
-                $consulta=mysql_query("SELECT categoria.id, categoria.nombre_categoria, COUNT(id_categoria)FROM productos 
+        $consulta=$conn->Execute("SELECT categoria.id, categoria.nombre_categoria, COUNT(id_categoria)FROM productos 
                   LEFT JOIN categoria ON productos.id_categoria = categoria.id
-                  GROUP BY id_categoria ORDER BY COUNT( id_categoria ) DESC"); 
-                   while($ar=mysql_fetch_array($consulta))
-                   {
-                   echo"<a class='list-group-item ' href=\"categorias.php?id=$ar[0]\">$ar[1]</a></li>";
-                   }
-                ?>
+                  GROUP BY id_categoria ORDER BY COUNT( id_categoria ) DESC");
+        while(!$consulta->EOF)
+        {
+            echo"<a class='list-group-item ' href=\"categorias.php?id=".$consulta->fields[0]."\">".$consulta->fields[1]."</a></li>";
+            $consulta->moveNext();
+        }                     
+        ?>
     </div>
 
 		</div>

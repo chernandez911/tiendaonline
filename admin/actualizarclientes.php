@@ -2,7 +2,7 @@
 include ("../config/config.php");
 	
 $consulta="UPDATE clientes SET nombre='".$_POST['nombre']."',apellidos='".$_POST['apellidos']."',email='".$_POST['email']."'
-,usuario='".$_POST['usuario']."',contrasena='".$_POST['contrasena']."',telefono='".$_POST['telefono']."',celular='".$_POST['celular']."'
+,usuario=SHA('".$_POST['usuario']."'),contrasena=SHA('".$_POST['contrasena']."'),telefono='".$_POST['telefono']."',celular='".$_POST['celular']."'
 ,fax='".$_POST['fax']."',direccion='".$_POST['direccion']."' where id='".$_GET['id']."'";
 
 mysql_query($consulta);

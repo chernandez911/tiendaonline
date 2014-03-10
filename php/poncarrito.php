@@ -3,10 +3,12 @@
  session_start();
  $suma=0;
  if(isset($_GET['p'])){
+
  $_SESSION['producto'][$_SESSION['contador']]=$_GET['p'];
  $_SESSION['unidades'][$_SESSION['contador']]=$_GET['cant'];
  $_SESSION['contador']++;
  }
+
 for($i=0;$i<($_SESSION['contador']);$i++)
 {
 	$consulta=$conn->Execute("SELECT *FROM productos WHERE id=".$_SESSION['producto'][$i]."");

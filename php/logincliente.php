@@ -1,4 +1,5 @@
-<?php session_start();
+<?php 
+session_start();
 if(!isset($_SESSION['contador']))
 {	
 	$_SESSION['contador']=0;
@@ -7,19 +8,24 @@ if(!isset($_SESSION['contador']))
 <?php 
 include ("../config/config.php");
 
+$usuario=$conn->QSTR($_POST["usuario"],get_magic_quotes_gpc());
+$contrasena=$conn->QSTR($_POST["contrasena"],get_magic_quotes_gpc());
+
 $contador=0;	
-$consulta=$conn->Execute("SELECT *FROM clientes WHERE usuario=SHA('".$_POST['usuario']."') AND contrasena=SHA('".$_POST['contrasena']."')");
+$consulta=$conn->Execute("SELECT *FROM clientes WHERE usuario=SHA($usuario) AND contrasena=SHA($contrasena)");
 while(!$consulta->EOF)
 {
 	$contador++;
 	$_SESSION['usuario']=$consulta->fields['id'];
+	$sesion_usuario=$conn->QSTR($_SESSION['usuario'],get_magic_quotes_gpc());
 	$consulta->moveNext();
 }
-if($contador>0)
-{	
-$consulta2=$conn->Execute("INSERT INTO pedidos VALUES (NULL,".$_SESSION['usuario'].",'".date('U')."','0')");
 
-$consulta3=$conn->Execute("select *from pedidos WHERE id_cliente='".$_SESSION['usuario']."' ORDER BY fecha DESC LIMIT 1 ");
+if($contador>0)
+{
+
+$consulta2=$conn->Execute("INSERT INTO pedidos VALUES (NULL,$sesion_usuario,'".date('U')."','0')");
+$consulta3=$conn->Execute("SELECT *FROM pedidos WHERE id_cliente=$sesion_usuario ORDER BY fecha DESC LIMIT 1 ");
 
 while(!$consulta3->EOF)
 	{
@@ -46,7 +52,9 @@ while(!$consulta5->fields)
 }
 else
 	{	
-	echo ("El usuario no existe");	
+	echo ("<script type='text/javascript'>
+	alert('El usuario no existe, porfavor verifica los datos que ingresaste...');	
+	</script>");	
 	echo("Pagina principal en 5 segundos...");	
 	echo '<meta http-equiv="refresh" content="5; url=../confirmar.php">';
 	}

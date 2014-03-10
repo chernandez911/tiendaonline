@@ -1,6 +1,6 @@
 <?php include"/config/config.php";  ?>
-<?php session_start();
-
+<?php 
+session_start();
 if(!isset($_SESSION['contador']))
 { 
   $_SESSION['contador']=0;

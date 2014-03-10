@@ -1,27 +1,27 @@
 <?php 
 include ("../config/config.php");
-$contador=0;
-$consulta=$conn->Execute("SELECT *FROM clientes WHERE usuario='".$_POST['usuario']."'");
-while(!$consulta->EOF)
-{
-	$contador++;
+
+
+$nombre=$conn->QSTR($_POST["nombre"],get_magic_quotes_gpc());
+$apellidos=$conn->QSTR($_POST["apellidos"],get_magic_quotes_gpc());
+$email=$conn->QSTR($_POST["email"],get_magic_quotes_gpc());
+$usuario=$conn->QSTR($_POST["usuario"],get_magic_quotes_gpc());
+$contrasena=$conn->QSTR($_POST["contrasena"],get_magic_quotes_gpc());
+$celular=$conn->QSTR($_POST["celular"],get_magic_quotes_gpc());
+$direccion=$conn->QSTR($_POST["direccion"],get_magic_quotes_gpc());
+
+$consulta1=$conn->Execute("INSERT INTO clientes VALUES (NULL,$nombre,$apellidos,$email,SHA($usuario),SHA($contrasena),'',$celular,'',$direccion,'')");
+while(!$consulta1->EOF){
+
+	$consulta1->moveNext();
+
 }
-if ($contador=0){
 
-$consulta1=$conn->Execute("INSERT INTO clientes VALUES (NULL,'".$_POST['nombre']."','".$_POST['apellidos']."','".$_POST['email']."','".$_POST['usuario']."','".$_POST['contrasena']."','','".$_POST['celular']."','','".$_POST['direccion']."','')");
-
-while(!$consulta1->EOF)
-{
 echo'<script type="text/javascript">
-window.location="logincliente.php?usuario='.$_POST['usuario'].'&contrasena='.$_POST['contrasena'].'";
+alert("Su usuario fue creado con exito,ya puede comprar con su usuario, BIENVENIDO!!!!");
 </script>';
-}
-else
-{
-	echo'<script type="text/javascript">
+
+echo'<script type="text/javascript">
 window.location="../confirmar.php";
 </script>';
-}
 ?>
-
-

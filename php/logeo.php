@@ -4,22 +4,16 @@ session_start();
 
 include "../config/config.php";
 
-$usuario=$_POST['user'];
-$contraseña=$_POST['pass'];
+$usuario=$conn->QSTR($_POST["user"],get_magic_quotes_gpc());
+$contrasena=$conn->QSTR($_POST["pass"],get_magic_quotes_gpc());
 
-
-$consulta=$conn->Execute("SELECT *FROM admin WHERE user='".$user."' AND pass='".$pass."'");
-
-
-if($consulta->fields['user']==$_POST['user'] && $consulta->fields['pass']== $_POST['pass']){
-
-	}
+$consulta=$conn->Execute("SELECT *FROM admin WHERE user=$usuario AND pass=$contrasena");
+if($consulta->fields['user']==$usuario && $consulta->fields['pass']== $contrasena)
+{
+}
 	
-
 $consulta-> moveNext();
-
 $_SESSION['activo'] = true; 
-
 ?>
 <script>
 window.location = "../admin/";

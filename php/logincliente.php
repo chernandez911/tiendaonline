@@ -8,7 +8,7 @@ if(!isset($_SESSION['contador']))
 include ("../config/config.php");
 
 $contador=0;	
-$consulta=$conn->Execute("SELECT *FROM clientes WHERE usuario='".$_POST['usuario']."' AND contrasena='".$_POST['contrasena']."'");
+$consulta=$conn->Execute("SELECT *FROM clientes WHERE usuario=SHA('".$_POST['usuario']."') AND contrasena=SHA('".$_POST['contrasena']."')");
 while(!$consulta->EOF)
 {
 	$contador++;

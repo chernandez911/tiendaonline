@@ -48,14 +48,13 @@ while(!$consulta5->fields)
 	alert('Tu perido se ha realizado, Gracias por confiar en nosotros');	
 	</script>";
 	session_destroy();
-	echo '<meta http-equiv="refresh" content="1; url=../index2.php">';
+	echo '<meta http-equiv="refresh" content="0; url=../index2.php">';
 }
 else
 	{	
 	echo ("<script type='text/javascript'>
 	alert('El usuario no existe, porfavor verifica los datos que ingresaste...');	
 	</script>");	
-	echo("Pagina principal en 5 segundos...");	
-	echo '<meta http-equiv="refresh" content="5; url=../confirmar.php">';
+	echo '<meta http-equiv="refresh" content="0; url=../confirmar.php">';
 	}
 ?>

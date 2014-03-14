@@ -9,7 +9,7 @@ header("Location:../login.php");
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Document</title>
+	<title>Panel de Control- Administrador</title>
 </head>
 <body>
 	
@@ -18,4 +18,4 @@ header("Location:../login.php");
 </form>
 </body>
 </html>
-<?php include("piedepagina.php");		?>
+<?php include("piedepagina.php");?>

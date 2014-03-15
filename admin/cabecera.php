@@ -5,7 +5,7 @@
 		<link rel="stylesheet" href="../css/estiloadmin.css" >
 		
 		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
-		<title>Tienda Onlinr</title>
+		<title>Panel de Control- Administrador</title>
 	</head>
 	<body>
 		<div id="contenedor">

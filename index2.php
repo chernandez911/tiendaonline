@@ -7,7 +7,6 @@
 <div  class="container">
 
 <?php
-
 $consulta=$conn->Execute("SELECT *FROM productos WHERE destacado='1' && existencias>0 LIMIT 10");
 while (!$consulta->EOF){
 
@@ -15,7 +14,7 @@ $consulta2=$conn->Execute("SELECT * FROM imagenesproductos WHERE id_producto='".
 
 while(!$consulta2->EOF){
 	echo"<div id='productos' class='paneldestacados panel-info col-xs-12 col-sm-6 col-md-6 col-lg-6'> ";
-	echo" <div class='panel-heading '><h><a href='producto.php?id=".$consulta->fields['id']."'>".$consulta->fields['nombre']."</a></h></div> ";
+	echo" <div class='panel-heading'><h><a href='producto.php?id=".$consulta->fields['id']."'>".$consulta->fields['nombre']."</a></h></div> ";
 	echo"<img src='photo/".$consulta2->fields['imagen']."' width=100px class=".'img-rounded'."> "; 
 	$consulta2->moveNext();
 }

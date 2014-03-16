@@ -22,9 +22,12 @@ $( "#tabs" ).tabs();
 <?php 
 include ("config/config.php");
 
-$consulta=$conn->Execute("SELECT *FROM productos WHERE id=".$_GET['id']."");
+$id=$conn->QSTR($_GET["id"],get_magic_quotes_gpc());
+$consulta=$conn->Execute("SELECT *FROM productos WHERE id=$id");
 
 while (!$consulta->EOF){
+
+$consulta2=$conn->Execute("select *from imagenesproductos WHERE id_producto=".$consulta->fields['id']);
 
 	echo"<div class='col-sm-4 col-md-4 col-lg-4 '>";
 	echo"</div>";
@@ -35,9 +38,7 @@ while (!$consulta->EOF){
 	
 	echo "<p>Existencias disponibles ".$consulta->fields['existencias']."</p>";
 
-$consulta2=$conn->Execute("select *from imagenesproductos WHERE id_producto=".$consulta->fields['id']);
 
-while (!$consulta2->EOF){
 	echo"<img src='photo/".$consulta2->fields['imagen']."' width=100px>";
 	$consulta2->moveNext();
 	echo"
@@ -53,15 +54,13 @@ while (!$consulta2->EOF){
 	 <p>Medidas Longitud: ".$consulta->fields['longitud']." <br> Anchura : ".$consulta->fields['anchura']."  <br>Altura : ".$consulta->fields['altura']." </p>
 	</div> ";
 
-	}
 	echo "<br>";
 	echo "<button value='".$consulta->fields['id']."'class='botoncompra btn btn-default'> Agregar al carro </button>";
 	echo"</div>
 	</div>";
 
 	$consulta->moveNext();
-	}
-	
+}	
 ?>
 </div>
 </div>

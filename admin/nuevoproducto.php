@@ -13,22 +13,24 @@ $estado_producto=$conn->QSTR($_POST["estado_producto"],get_magic_quotes_gpc());
 $categoria=$conn->QSTR($_POST["categorias"],get_magic_quotes_gpc());
 $destacado=$conn->QSTR($_POST["destacado"],get_magic_quotes_gpc());
 
-$consulta=$conn->Execute("INSERT INTO productos VALUES (NULL,$nombre,$descripcion,$precio,$peso,
-	$longitud,$anchura,$altura,$existencias,$estado_producto,$categoria,$destacado)");
+$consulta=$conn->Execute("INSERT INTO productos VALUES (NULL,$nombre,$descripcion,$precio,$peso,$longitud,$anchura,$altura,
+						$existencias,$estado_producto,$categoria,$destacado)");
 	
 $consulta2=$conn->Execute("SELECT *FROM productos ORDER BY id DESC LIMIT 1");
 
 while(!$consulta2->EOF)
 {
-	$id=$consulta->fields['id'];
-
-	$consulta2->moveNext();
+	$identificador=$consulta2->fields['id'];
+$consulta2->moveNext();
 }
-if($_FILES['imagen']['type'] == "image/gif" || $_FILES['imagen']['type'] == "image/jpeg" || $_FILES['imagen']['type'] == "image/jpg" || $_FILES['imagen']['type'] == "image/png" ){
+
+if($_FILES['imagen']['type'] == "image/gif" || $_FILES['imagen']['type'] == "image/jpeg" || $_FILES['imagen']['type'] == "image/jpg" || $_FILES['imagen']['type'] == "image/png" )
+{
 move_uploaded_file($_FILES['imagen']['tmp_name'],"../photo/".$_FILES['imagen']['name']);
 }
 
-$consulta3=$conn->Execute("INSERT INTO imagenesproductos VALUES (NULL,'".$id."','".$_FILES['imagen']['name']."','','')");
+$consulta3=$conn->Execute("INSERT INTO imagenesproductos VALUES (NULL,'".$identificador."','".$_FILES['imagen']['name']."','','')");
+
 
 ?>
 

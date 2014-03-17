@@ -1,9 +1,10 @@
 <?php 
 include ("../config/config.php");
-	
-$consulta=mysql_query("delete from clientes where id='".$_GET['id']."'");
 
-mysql_close($conexion);
+
+$id=$conn->QSTR($_GET['id'],get_magic_quotes_gpc());	
+$consulta=$conn->Execute("DELETE FROM clientes WHERE id=$id");	
+
 ?>
 
 <script type="text/javascript">

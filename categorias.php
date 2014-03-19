@@ -20,7 +20,8 @@ $consulta2=$conn->Execute("SELECT * FROM imagenesproductos WHERE id_producto='".
 
   echo"<div class='col-xs-6 col-sm-6 col-md-6  col-lg-6'>";
   echo "<h3><a href='producto.php?id=".$consulta->fields['id']."'></a></h3>";
-  echo "<p>Precio $".$consulta->fields['precio']."</p>";
+  $numero = $consulta->fields['precio']; 
+  echo "<p>Precio \$ ".number_format($numero,0,",",".")." </p> ";
   echo"Cantidad:<input type='number' class='btn btn-default' value='1' max='10' min='1' id='numero".$consulta->fields['id']."'>";  
   echo "<a href='producto.php?id=".$consulta->fields['id']."'><button class='btn btn-ifno'> Mas informacion </button></a>";
   echo "<button value='".$consulta->fields['id']."'class='botoncompra btn btn-default'> Comprar Ahora </button>";

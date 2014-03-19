@@ -13,8 +13,9 @@ $estado_producto=$conn->QSTR($_POST["estado_producto"],get_magic_quotes_gpc());
 $categoria=$conn->QSTR($_POST["categorias"],get_magic_quotes_gpc());
 $destacado=$conn->QSTR($_POST["destacado"],get_magic_quotes_gpc());
 
+
 $consulta=$conn->Execute("INSERT INTO productos VALUES (NULL,$nombre,$descripcion,$precio,$peso,$longitud,$anchura,$altura,
-						$existencias,$estado_producto,$categoria,$destacado)");
+						$existencias,$estado_producto,$destacado,$categoria)");
 	
 $consulta2=$conn->Execute("SELECT *FROM productos ORDER BY id DESC LIMIT 1");
 
@@ -29,7 +30,7 @@ if($_FILES['imagen']['type'] == "image/gif" || $_FILES['imagen']['type'] == "ima
 move_uploaded_file($_FILES['imagen']['tmp_name'],"../photo/".$_FILES['imagen']['name']);
 }
 
-$consulta3=$conn->Execute("INSERT INTO imagenesproductos VALUES (NULL,'".$identificador."','".$_FILES['imagen']['name']."','','')");
+$consulta3=$conn->Execute("INSERT INTO imagenesproductos VALUES (NULL,'".$_FILES['imagen']['name']."','','','".$identificador."')");
 
 
 ?>

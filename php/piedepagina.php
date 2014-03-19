@@ -2,7 +2,7 @@
 	<div class="container">
 	    <div class="row-fluid">
 	      	<div class="col-md-4">
-	      		Datos pagina
+	      		<a href="login.php"> Administrador </a>
 	      	</div>
 	      	<div class="col-md-4">
 	      		Ferretaller Hernandez Hermanos <br>

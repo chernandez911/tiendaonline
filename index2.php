@@ -18,7 +18,8 @@ echo('<div id="productos" class="paneldestacados panel-info col-xs-12 col-sm-6 c
 	echo"<img src='photo/".$consulta2->fields['imagen']."' width=100px class=".'img-rounded'."> "; 
 	echo"<div class='col-xs-4 col-sm-4 col-md-4  col-lg-6'>";
 	echo "<h3></h3>";
-	echo "<p>Precio $".$consulta->fields['precio']."</p>";
+	$numero = $consulta->fields['precio']; 
+	echo "<p>Precio \$ ".number_format($numero,0,",",".")." </p> ";
 	echo"Cantidad:<input type='number' class='btn btn-default' value='1' max='10' min='1' id='numero".$consulta->fields['id']."'>";  
 	echo "<a href='producto.php?id=".$consulta->fields['id']."'><button class='btn btn-ifno'> Mas informacion </button></a>";
 	echo "<button value='".$consulta->fields['id']."'class='botoncompra btn btn-default'> Al carrito </button>";

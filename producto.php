@@ -33,7 +33,8 @@ $consulta2=$conn->Execute("select *from imagenesproductos WHERE id_producto=".$c
 	echo"</div>";
 	echo"<div class='col-xs-12 col-sm-8 col-md-8 col-lg-8 '>";
 	echo "<a href='producto.php?id=".$consulta->fields['id']."'>".$consulta->fields['nombre']."</a>";
-	echo "<p>Precio $".$consulta->fields['precio']."</p>";
+	$numero = $consulta->fields['precio']; 
+	echo "<p>Precio \$ ".number_format($numero,0,",",".")." </p> ";
 	echo "<p>Peso ".$consulta->fields['peso']." Kg</p>";
 	
 	echo "<p>Existencias disponibles ".$consulta->fields['existencias']."</p>";

@@ -30,7 +30,7 @@ switch($estado_producto){
 	case 1:echo' style="background:rgb(200,255,200);"'; break;
 	}
 	echo'>'.$digaestado.'</td>
-	<td><a href="actualizarproducto.php"><button>Actualizar Producto</button> </a></td>
+	<td><a href="actualizarproducto.php?id='.$consulta->fields['id'].'"><button>Actualizar Producto</button> </a></td>
 	<td><a href="eliminarproducto.php?id='.$consulta->fields['id'].'"><button>Eliminar Producto</button> </a></td>
 	</tr>';
 

@@ -9,9 +9,9 @@
 <table>
 <tr>
         <form action="nuevoproducto.php" method="post" enctype="multipart/form-data">
-        <td><input type="text" name="nombre" placeholder="Introduce nombre" />      </td>
+        <td><input type="text" name="nombre" autofocus placeholder="Introduce nombre" />      </td>
         <td>   <textarea class="form-control" placeholder="Escribe la descripcion del producto aqui" name="descripcion"></textarea><br /> </td>
-        <td><input type="text" name="precio" placeholder="Introduce precio" />      </td>
+        <td><input type="text" name="precio" step="any" placeholder="Introduce precio" />   </td>
         <td><input type="text" name="longitud" placeholder="Longitud" />X
         <input type="text" name="anchura" placeholder="achura" />X
         <input type="text" name="altura"  placeholder="altura"/> </td>		 

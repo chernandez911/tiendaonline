@@ -22,7 +22,7 @@ while(!$consulta->EOF){
     <td>".$consulta->fields['celular']."</td>
     <td>".$consulta->fields['fax']."</td>
     <td>".$consulta->fields['direccion']."</td>
-    <td><a href='actualizarcliente.php'><button>Actualizar Cliente</button> </a></td>
+    <td><a href='actualizarcliente.php?id=".$consulta->fields['id']."''><button>Actualizar Cliente</button> </a></td>
     <td><a href='eliminarcliente.php?id=".$consulta->fields['id']."''><button>Eliminar Cliente</button> </a></td>
     </tr>";
   $consulta->moveNext();
@@ -39,8 +39,8 @@ while(!$consulta->EOF){
         <td><input type="email" name="email" placeholder="Email" required="required" /></td>
       <td><input type="text" name="usuario" placeholder="Nombre Usuario" required="required" /></td>
         <td><input type="password" name="contrasena"  placeholder="Contraseña" required="required"/> </td>		 
-      <tr>  <td><input type="text" name="telefono" placeholder="Telefono" />       </td>
-        <td><input type="text" name="celular" placeholder="Telefono Celular" required="required" />      </td>
+      <tr>  <td><input type="tel" name="telefono" placeholder="Telefono" />       </td>
+        <td><input type="tel" name="celular" placeholder="Telefono Celular" required="required" />      </td>
         <td><input type="text" name="fax" placeholder="Fax" />     </td>   
          <td><input type="text" name="direccion" placeholder="Direccion" required="required" />      </td></tr>  
         <td><input type="submit" value="Agregar Cliente" class="boton"/>      </td>

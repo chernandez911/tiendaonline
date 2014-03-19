@@ -34,21 +34,22 @@ while(!$consulta3->EOF)
 	}
 for($i=0;$i<($_SESSION['contador']);$i++)
 {
-	$consulta4=$conn->Execute("INSERT INTO lineaspedido VALUES (NULL,'".$_SESSION['id_pedido']."','".$_SESSION['producto'][$i]."','".$_SESSION['unidades'][$i]."')");
+	$consulta4=$conn->Execute("INSERT INTO lineaspedido VALUES (NULL,'".$_SESSION['unidades'][$i]."','".$_SESSION['id_pedido']."','".$_SESSION['producto'][$i]."')");
 	$consulta5=$conn->Execute("SELECT *FROM productos WHERE id='".$_SESSION['producto'][$i]."'");
 
-while(!$consulta5->fields)
+while(!$consulta5->EOF)
 	{
+
 		$existencias=$consulta5->fields['existencias'];
 		$consulta5->moveNext();
-		$consulta6=$conn->Execute("UPDATE productos SET existencias='".($existencias-1)."' WHERE id='".$_SESSION['producto'][$i]."'");
+		$consulta6=$conn->Execute("UPDATE productos SET existencias='".($existencias-$_SESSION['unidades'][$i])."' WHERE id='".$_SESSION['producto'][$i]."'");
 	}
 }
 	echo"<script type='text/javascript'>
 	alert('Tu perido se ha realizado, Gracias por confiar en nosotros');	
 	</script>";
 	session_destroy();
-	echo '<meta http-equiv="refresh" content="0; url=../index2.php">';
+		echo '<meta http-equiv="refresh" content="0; url=../index.php">';
 }
 else
 	{	

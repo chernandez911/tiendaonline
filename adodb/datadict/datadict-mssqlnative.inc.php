@@ -1,7 +1,7 @@
 <?php
 
 /**
-  v4.992 10 Nov 2009  (c) 2000-2009 John Lim (jlim#natsoft.com). All rights reserved.
+  V5.18 3 Sep 2012  (c) 2000-2012 John Lim (jlim#natsoft.com). All rights reserved.
   Released under both BSD license and Lesser GPL library license. 
   Whenever there is any discrepancy between the two licenses, 
   the BSD license will take precedence.
@@ -151,7 +151,7 @@ class ADODB2_mssqlnative extends ADODB_DataDict {
 	}
 	
 	// return string must begin with space
-	function _CreateSuffix($fname,$ftype,$fnotnull,$fdefault,$fautoinc,$fconstraint)
+	function _CreateSuffix($fname,&$ftype,$fnotnull,$fdefault,$fautoinc,$fconstraint,$funsigned)
 	{	
 		$suffix = '';
 		if (strlen($fdefault)) $suffix .= " DEFAULT $fdefault";

@@ -2,7 +2,7 @@
 <?php 
 session_start();
 if($_SESSION['activo']==false){
-header("Location:../login.php");
+header("Location:../admin/login.php");
 } 
 ?>
 <!doctype html>
@@ -13,7 +13,7 @@ header("Location:../login.php");
 </head>
 <body>
 	
-	<form action="../php/logout.php" metho="post">
+	<form action="../admin/logout.php" metho="post">
 	<input type="submit" value="logout" name="logout">
 </form>
 </body>

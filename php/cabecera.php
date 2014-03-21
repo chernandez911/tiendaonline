@@ -1,6 +1,4 @@
 <?php include"/config/config.php";  ?>
-
-
 <!doctype html>
 <html lang="es">
 <head>
@@ -13,6 +11,7 @@
 	<script type="text/javascript" src="js/bootstrap.min.js"></script>
   <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
   <link rel="stylesheet" type="text/css" href="css/index2.css">
+  <link rel="stylesheet" type="text/css" href="css/index.css">
   <link rel="stylesheet" type="text/css" href="css/carrito.css">
   <link rel="stylesheet" type="text/css" href="css/confirmar.css">
 	<link rel="stylesheet" type="text/css" href="css/footer-sticky.css">

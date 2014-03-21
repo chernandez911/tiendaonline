@@ -110,66 +110,20 @@
   </div> <!-- col -->
 </div> <!-- container marketing2 -->
 
+
 <div id="contacto" class="container">
-  <div class="col-md-4 visible=col-xs visible=col-sm">
-   
+  <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 ">
+ <center>  Contacte con Nosotros </center>
+  
   </div>
-  <div class="col-md-4 col-xs-12 col-sm-12">
-  <div class="panel-body">
-    <form action="" method="post" class="form-horizontal" role="form">
-    <div class="form-group">
-      <label  class="col-sm-4 control-label">Nombre</label>
-        <div class="col-sm-8">
-          <input type="text" class="form-control" name="nombre" placeholder="Introduce tu nombre" required="required">
-        </div>
-    </div>
-    <div class="form-group">
-        <label  class="col-sm-4 control-label">Apellidos</label>
-      <div class="col-sm-8">
-      <input type="text" class="form-control"  name="apellidos" placeholder="Introduce tus Apellidos">
-      </div>
-    </div>
-    <div class="form-group">
-        <label  class="col-sm-4 control-label">Empresa</label>
-      <div class="col-sm-8">
-        <input type="text" class="form-control" name="empresa" >
-      </div>
-    </div>
-    <div class="form-group">
-        <label  class="col-sm-4 control-label">Cargo</label>
-      <div class="col-sm-8">
-        <input type="text" class="form-control" name="cargo">
-      </div>
-    </div>
-    <div class="form-group">
-        <label  class="col-sm-4 control-label">Telefono</label>
-      <div class="col-sm-8">
-        <input type="text" class="form-control"  name="telefono" placeholder="Telefono de contacto">
-      </div>
-    </div>
-    <div class="form-group">
-        <label  class="col-sm-4 control-label">E-mail</label>
-      <div class="col-sm-8">
-        <input type="text" class="form-control" name="e-mail"  placeholder="E-mail">
-      </div>
-    </div>
-    <div class="form-group">
-        <label  class="col-sm-4 control-label">Comentarios</label>
-      <div class="col-sm-8">
-         <textarea class="form-control" placeholder="Escribeme tu comentario aquí" name="comment"></textarea><br />
-      </div>
-    </div>
-    <div class="form-group">
-        <label class="col-sm-4"></label>
-      <div class="col-sm-8">
-        <input type="submit" class="btn btn-default" value="Contactenos">
-      </div>
-    </div>
-    </form> 
+     <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+       <a href="php/contacto.php"><img class="img-circle img-responsive" target="_blank" src="img/contacto.fw.png" alt="Generic placeholder image"> </a>
+     </div>
+   <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+
+   <a href="tel:+573118093419"><img class="img-circle img-responsive" src="img/contactollamada.fw.png" alt="Generic placeholder image"> </a>
   </div>
   </div>
-  <div class="col-md-4"></div>
-</div>
 </div>
 <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
 

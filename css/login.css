@@ -1,0 +1,31 @@
+body {
+
+    background: black;
+}
+
+.form-signin{
+
+    max-width: 330px;
+padding: 15px;
+    padding-top: 15px;
+    padding-right-value: 15px;
+    padding-bottom: 15px;
+    padding-left-value: 15px;
+    padding-left-ltr-source: physical;
+    padding-left-rtl-source: physical;
+    padding-right-ltr-source: physical;
+    padding-right-rtl-source: physical;
+margin: 0px auto;
+    margin-top: 0px;
+    margin-right-value: auto;
+    margin-bottom: 0px;
+    margin-left-value: auto;
+    margin-left-ltr-source: physical;
+    margin-left-rtl-source: physical;
+    margin-right-ltr-source: physical;
+    margin-right-rtl-source: physical;
+
+     font-family: Aubrey;
+    font-size: 30px;
+    color: white;
+}

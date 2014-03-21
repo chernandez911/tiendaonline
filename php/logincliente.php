@@ -1,57 +1,61 @@
-<?php session_start();
-
+<?php 
+session_start();
 if(!isset($_SESSION['contador']))
 {	
 	$_SESSION['contador']=0;
 }
 ?>
-
 <?php 
 include ("../config/config.php");
 
-$contador=0;	
-$consulta=mysql_query("select *from clientes WHERE usuario='".$_POST['usuario']."' AND contrasena='".$_POST['contrasena']."'");
+$usuario=$conn->QSTR($_POST["usuario"],get_magic_quotes_gpc());
+$contrasena=$conn->QSTR($_POST["contrasena"],get_magic_quotes_gpc());
 
-while($fila=mysql_fetch_array($consulta))
+$contador=0;	
+$consulta=$conn->Execute("SELECT *FROM clientes WHERE usuario=SHA($usuario) AND contrasena=SHA($contrasena)");
+while(!$consulta->EOF)
 {
 	$contador++;
-	$_SESSION['usuario']=$fila['id'];
+	$_SESSION['usuario']=$consulta->fields['id'];
+	$sesion_usuario=$conn->QSTR($_SESSION['usuario'],get_magic_quotes_gpc());
+	$consulta->moveNext();
 }
 
-	if($contador>0)
-	{	
-		$consulta2=mysql_query("insert into pedidos values (NULL,".$_SESSION['usuario'].",'".date('U')."','0')");
-		$consulta3=mysql_query("select *from pedidos WHERE id_cliente='".$_SESSION['usuario']."' ORDER BY fecha DESC LIMIT 1 "		);	
+if($contador>0)
+{
 
-		while($fila=mysql_fetch_array($consulta3))
-		{$_SESSION['id_pedido']=$fila['id'];
+$consulta2=$conn->Execute("INSERT INTO pedidos VALUES (NULL,$sesion_usuario,'".date('U')."','0')");
+$consulta3=$conn->Execute("SELECT *FROM pedidos WHERE id_cliente=$sesion_usuario ORDER BY fecha DESC LIMIT 1 ");
+
+while(!$consulta3->EOF)
+	{
+		$_SESSION['id_pedido']=$consulta3->fields['id'];
+		$consulta3->moveNext();
+	}
+for($i=0;$i<($_SESSION['contador']);$i++)
+{
+	$consulta4=$conn->Execute("INSERT INTO lineaspedido VALUES (NULL,'".$_SESSION['unidades'][$i]."','".$_SESSION['id_pedido']."','".$_SESSION['producto'][$i]."')");
+	$consulta5=$conn->Execute("SELECT *FROM productos WHERE id='".$_SESSION['producto'][$i]."'");
+
+while(!$consulta5->EOF)
+	{
+
+		$existencias=$consulta5->fields['existencias'];
+		$consulta5->moveNext();
+		$consulta6=$conn->Execute("UPDATE productos SET existencias='".($existencias-$_SESSION['unidades'][$i])."' WHERE id='".$_SESSION['producto'][$i]."'");
+	}
 }
-
-	for($i=0;$i<($_SESSION['contador']);$i++)
-	{
-		$consulta4=mysql_query("insert into lineaspedido values (NULL,'".$_SESSION['id_pedido']."','".$_SESSION['producto'][$i]."','".$_SESSION['unidades'][$i]."')");
-		$consulta5=mysql_query("select *from productos WHERE id='".$_SESSION['producto'][$i]."'");
-while($fila=mysql_fetch_array($consulta5))
-	{
-		$existencias=$fila['existencias'];
-		$consulta6=mysql_query("UPDATE productos SET existencias='".($existencias-1)."' WHERE id='".$_SESSION['producto'][$i]."'");
-	}
-	
-	}
-	echo("Tu pedido se ha realizado satisfactoriamente. Pagina principal en 5 segundos...");
-	
+	echo"<script type='text/javascript'>
+	alert('Tu perido se ha realizado, Gracias por confiar en nosotros');	
+	</script>";
 	session_destroy();
-	
-	echo '<meta http-equiv="refresh" content="2; url=../index2.php">';
-	
+		echo '<meta http-equiv="refresh" content="0; url=../index.php">';
 }
 else
 	{	
-	echo ("El usuario no existe");	
-	echo("Pagina principal en 5 segundos...");	
-	echo '<meta http-equiv="refresh" content="5; url=../confirmar.php">';
-	 
+	echo ("<script type='text/javascript'>
+	alert('El usuario no existe, porfavor verifica los datos que ingresaste...');	
+	</script>");	
+	echo '<meta http-equiv="refresh" content="0; url=../confirmar.php">';
 	}
-		
-	mysql_close($conexion);
 ?>

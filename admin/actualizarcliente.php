@@ -2,27 +2,26 @@
 <?php 
 include ("../config/config.php");
 	
-$consulta=mysql_query("SELECT *from clientes");
+$id=$conn->QSTR($_GET["id"],get_magic_quotes_gpc());
 
-while($fila=mysql_fetch_array($consulta)){
+$consulta=$conn->Execute("SELECT *from clientes WHERE id=$id");
+while(!$consulta->EOF){
 
 	echo'<tr>
-	<form action="actualizarclientes.php?id='.$fila['id'].'" method="post">
-	<td><input type="text" name="nombre" value="'.$fila['nombre'].'"</td>
-	<td><input type="text" name="apellidos" value="'.$fila['apellidos'].'"</td>
-	<td><input type="text" name="email" value="'.$fila['email'].'"</td>
-	<td><input type="text" name="usuario" value="'.$fila['usuario'].'"</td>
-	<td><input type="text" name="contrasena" value="'.$fila['contrasena'].'"</td>
-	<td><input type="text" name="celular" value="'.$fila['celular'].'"</td>
-	<td><input type="text" name="telefono" value="'.$fila['telefono'].'"</td>
-	<td><input type="text" name="fax" value="'.$fila['fax'].'"</td>
-	<td><input type="text" name="direccion" value="'.$fila['direccion'].'"</td>
-	<td><input type="submit" value="Actualizar"></td>	
-	</form>
-	</tr>';
+	<form action="actualizarclientes.php?id='.$consulta->fields['id'].'" method="post">
+	<td><input type="text" name="nombre" value="'.$consulta->fields['nombre'].'"</td>
+	<td><input type="text" name="apellidos" value="'.$consulta->fields['apellidos'].'"</td>
+	<td><input type="text" name="email" value="'.$consulta->fields['email'].'"
+	<td><input type="text" name="usuario" value="'.$consulta->fields['usuario'].'"
+	<td><input type="text" name="contrasena" value="'.$consulta->fields['contrasena'].'"</td>
+	<td><input type="tel" name="telefono" value="'.$consulta->fields['telefono'].'"</td>
+	<td><input type="tel" name="celular" value="'.$consulta->fields['celular'].'"</td>
+	<td><input type="tel" name="fax" value="'.$consulta->fields['fax'].'"</td>
+	<td><input type="text" name="direccion" value="'.$consulta->fields['direccion'].'"</td>
+	<td><input type="submit" value="Actualizar"></td>';
 
+$consulta->moveNext();
 }
 
-mysql_close($conexion);
 ?>
 </table>

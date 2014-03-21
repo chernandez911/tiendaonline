@@ -2,28 +2,32 @@
 <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 <br>
 <table>
+<tr>
+    <td>Nombres</td>
+    <td>Apellidos</td>
+    <td>E-mail</td>
+    <td>Telefono</td>
+    <td>Celular</td>
+    <td>Direccion</td>
+</tr>
 <?php 
 include ("../config/config.php");
-	
-$consulta=mysql_query("SELECT *from clientes");
-$contador=0;
-while($fila=mysql_fetch_array($consulta)){
+$consulta=$conn->Execute("SELECT *from clientes");
+while(!$consulta->EOF){
 
-	echo '<tr>';
-	echo '<td>'.$fila['nombre'].'</td>  
-	<td>'.$fila['apellidos'].'</td>
-	<td>'.$fila['email'].'</td>
-	<td>'.$fila['usuario'].'</td>
-	<td>'.$fila['contrasena'].'</td>
-	<td>'.$fila['telefono'].'</td>
-	<td>'.$fila['celular'].'</td>
-	<td>'.$fila['fax'].'</td>
-	<td>'.$fila['direccion'].'</td>
-	<td><a href="actualizarcliente.php"><button>Actualizar Cliente</button> </a></td>
-	<td><a href="eliminarcliente.php?id='.$fila['id'].'"><button>Eliminar Cliente</button> </a></td>
-	';
+	echo "<tr><td>".$consulta->fields['nombre']."</td>
+    <td>".$consulta->fields['apellidos']."</td>
+    <td>".$consulta->fields['email']."</td>
+    <td>".$consulta->fields['telefono']."</td>
+    <td>".$consulta->fields['celular']."</td>
+    <td>".$consulta->fields['fax']."</td>
+    <td>".$consulta->fields['direccion']."</td>
+    <td><a href='actualizarcliente.php?id=".$consulta->fields['id']."''><button>Actualizar Cliente</button> </a></td>
+    <td><a href='eliminarcliente.php?id=".$consulta->fields['id']."''><button>Eliminar Cliente</button> </a></td>
+    </tr>";
+  $consulta->moveNext();
 }
-mysql_close($conexion);
+  
 ?>
 </table>
 <br>
@@ -35,8 +39,8 @@ mysql_close($conexion);
         <td><input type="email" name="email" placeholder="Email" required="required" /></td>
       <td><input type="text" name="usuario" placeholder="Nombre Usuario" required="required" /></td>
         <td><input type="password" name="contrasena"  placeholder="Contraseña" required="required"/> </td>		 
-      <tr>  <td><input type="text" name="telefono" placeholder="Telefono" />       </td>
-        <td><input type="text" name="celular" placeholder="Telefono Celular" required="required" />      </td>
+      <tr>  <td><input type="tel" name="telefono" placeholder="Telefono" />       </td>
+        <td><input type="tel" name="celular" placeholder="Telefono Celular" required="required" />      </td>
         <td><input type="text" name="fax" placeholder="Fax" />     </td>   
          <td><input type="text" name="direccion" placeholder="Direccion" required="required" />      </td></tr>  
         <td><input type="submit" value="Agregar Cliente" class="boton"/>      </td>

@@ -56,7 +56,7 @@ if(!isset($_SESSION['contador']))
     </div>
 <div id="cabecera" class="container">
 	<div class="row-fluid">
-		<div class="col-md-3 col-xs-6 col-sm-2">
+		<div class="col-md-3 col-xs-8 col-sm-2">
     <div class="list-group">
        <a class='list-group-item active'>Categorias</a></li>
         <?php 
@@ -72,10 +72,12 @@ if(!isset($_SESSION['contador']))
     </div>
 
 		</div>
-		<div class=" col-xs-6 col-md-3 col-sm-2 ">	
+		<div class=" col-md-3 col-xs-4 col-sm-2 ">	
 		</div>
 		<div class="col-md-3 col-sm-2 ">
 		</div>
+
+
 		<div class="col-md-3 col-sm-6 ">
 			<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">Mis compras</button>
       <!-- Modal -->

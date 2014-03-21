@@ -25,7 +25,7 @@
                 </div>
                 </form>
   <div class="col-md-6">
-    <legend> ¿Eres nuevo usuario? </legend> 
+    <legend>¿Eres nuevo usuario?</legend> 
     <input type="radio"> Crear una cuenta</input> <br>
     <button id="button">Continuar</button>
   </div>

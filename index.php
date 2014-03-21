@@ -12,7 +12,7 @@
   <link href="css/carousel-responsive.css" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="css/index.css">
   <link rel="stylesheet" type="text/css" href="css/footer-sticky.css">
-  <title></title>
+  <title>Tienda Online</title>
 </head>
 <body>
 <div id="contenedor">

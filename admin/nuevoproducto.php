@@ -1,21 +1,37 @@
 <?php 
 include ("../config/config.php");
+
+$nombre=$conn->QSTR($_POST["nombre"],get_magic_quotes_gpc());
+$descripcion=$conn->QSTR($_POST["descripcion"],get_magic_quotes_gpc());
+$precio=$conn->QSTR($_POST["precio"],get_magic_quotes_gpc());
+$peso=$conn->QSTR($_POST["peso"],get_magic_quotes_gpc());
+$longitud=$conn->QSTR($_POST["longitud"],get_magic_quotes_gpc());
+$anchura=$conn->QSTR($_POST["anchura"],get_magic_quotes_gpc());
+$altura=$conn->QSTR($_POST["altura"],get_magic_quotes_gpc());
+$existencias=$conn->QSTR($_POST["existencias"],get_magic_quotes_gpc());
+$estado_producto=$conn->QSTR($_POST["estado_producto"],get_magic_quotes_gpc());
+$categoria=$conn->QSTR($_POST["categorias"],get_magic_quotes_gpc());
+$destacado=$conn->QSTR($_POST["destacado"],get_magic_quotes_gpc());
+
+
+$consulta=$conn->Execute("INSERT INTO productos VALUES (NULL,$nombre,$descripcion,$precio,$peso,$longitud,$anchura,$altura,
+						$existencias,$estado_producto,$destacado,$categoria)");
 	
-$consulta=mysql_query("insert into productos values (NULL,'".$_POST['nombre']."','','".$_POST['precio']."','".$_POST['peso']."','".$_POST['longitud']."','".$_POST['anchura']."','".$_POST['altura']."','".$_POST['existencias']."','".$_POST['activado']."','1','0')");
+$consulta2=$conn->Execute("SELECT *FROM productos ORDER BY id DESC LIMIT 1");
 
-
-$consulta2=mysql_query("select *from productos ORDER BY id DESC LIMIT 1");
-
-while($fila=mysql_fetch_array($consulta2))
+while(!$consulta2->EOF)
 {
-	$id=$fila['id'];
+	$identificador=$consulta2->fields['id'];
+$consulta2->moveNext();
 }
-if($_FILES['imagen']['type'] == "image/gif" || $_FILES['imagen']['type'] == "image/jpeg" || $_FILES['imagen']['type'] == "image/jpg" || $_FILES['imagen']['type'] == "image/png" ){
+
+if($_FILES['imagen']['type'] == "image/gif" || $_FILES['imagen']['type'] == "image/jpeg" || $_FILES['imagen']['type'] == "image/jpg" || $_FILES['imagen']['type'] == "image/png" )
+{
 move_uploaded_file($_FILES['imagen']['tmp_name'],"../photo/".$_FILES['imagen']['name']);
 }
-$consulta3=mysql_query("insert into imagenesproductos values (NULL,'".$id."','".$_FILES['imagen']['name']."','','')");
 
-mysql_close($conexion);
+$consulta3=$conn->Execute("INSERT INTO imagenesproductos VALUES (NULL,'".$_FILES['imagen']['name']."','','','".$identificador."')");
+
 
 ?>
 

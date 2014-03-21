@@ -1,13 +1,22 @@
 <?php 
 include ("../config/config.php");
 	
-$consulta="UPDATE clientes SET nombre='".$_POST['nombre']."',apellidos='".$_POST['apellidos']."',email='".$_POST['email']."'
-,usuario='".$_POST['usuario']."',contrasena='".$_POST['contrasena']."',telefono='".$_POST['telefono']."',celular='".$_POST['celular']."'
-,fax='".$_POST['fax']."',direccion='".$_POST['direccion']."' where id='".$_GET['id']."'";
 
-mysql_query($consulta);
+$nombre=$conn->QSTR($_POST["nombre"],get_magic_quotes_gpc());
+$apellidos=$conn->QSTR($_POST["apellidos"],get_magic_quotes_gpc());
+$email=$conn->QSTR($_POST["email"],get_magic_quotes_gpc());
+$usuario=$conn->QSTR($_POST["usuario"],get_magic_quotes_gpc());
+$contrasena=$conn->QSTR($_POST["contrasena"],get_magic_quotes_gpc());
+$telefono=$conn->QSTR($_POST["telefono"],get_magic_quotes_gpc());
+$celular=$conn->QSTR($_POST["celular"],get_magic_quotes_gpc());
+$fax=$conn->QSTR($_POST["fax"],get_magic_quotes_gpc());
+$direccion=$conn->QSTR($_POST["direccion"],get_magic_quotes_gpc());
+$id=$conn->QSTR($_GET["id"],get_magic_quotes_gpc());
 
-mysql_close($conexion);
+
+$consulta=$conn->Execute("UPDATE clientes SET nombre=$nombre,apellidos=$apellidos,email=$email,usuario=SHA($usuario),contrasena=SHA($contrasena),
+	telefono=$telefono,celular=$celular,fax=$fax,direccion=$direccion WHERE id=$id");
+
 ?>
 
 <script type="text/javascript">

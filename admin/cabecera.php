@@ -1,11 +1,3 @@
-<?php session_start();
-
-if(!isset($_SESSION['contador']))
-{	
-	$_SESSION['contador']=0;
-	
-}
- ?>
 <!doctype html>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
 <html lang="es">
@@ -13,7 +5,7 @@ if(!isset($_SESSION['contador']))
 		<link rel="stylesheet" href="../css/estiloadmin.css" >
 		
 		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
-		<title>Tienda Onlinr</title>
+		<title>Panel de Control- Administrador</title>
 	</head>
 	<body>
 		<div id="contenedor">

@@ -22,45 +22,60 @@ $( "#tabs" ).tabs();
 <?php 
 include ("config/config.php");
 
-$consulta=mysql_query("select *from productos where id=".$_GET['id']."");
+$id=$conn->QSTR($_GET["id"],get_magic_quotes_gpc());
+$consulta=$conn->Execute("SELECT *FROM productos WHERE id=$id");
 
-while($fila=mysql_fetch_array($consulta)){
-	
+while (!$consulta->EOF){
+
+$consulta2=$conn->Execute("select *from imagenesproductos WHERE id_producto=$id");
+
 	echo"<div class='col-sm-4 col-md-4 col-lg-4 '>";
 	echo"</div>";
 	echo"<div class='col-xs-12 col-sm-8 col-md-8 col-lg-8 '>";
-	echo "<a href='producto.php?id=".$fila['id']."'>".$fila['nombre']."</a>";
-	echo "<p>Precio $".$fila['precio']."</p>";
-	echo "<p>Peso ".$fila['peso']." Kg</p>";
-	
-	echo "<p>Existencias disponibles ".$fila['existencias']."</p>";
-
-	$consulta2=mysql_query("select *from imagenesproductos WHERE id_producto=".$fila['id']);
-
-while($fila2=mysql_fetch_array($consulta2))
-	{
-	echo"<img src='photo/".$fila2['imagen']."' width=100px>";
+	echo "<a class='tituloproducto' href='producto.php?id=".$consulta->fields['id']."'>".$consulta->fields['nombre']."</a>";	
+	$numero = $consulta->fields['precio'];
 	echo"
 	<div id='tabs'>
 			<ul>
+			<li><a href='#tabs-0'>Datos</a></li>
 			<li><a href='#tabs-1'>Descripcion</a></li>
 			<li><a href='#tabs-2'>Medidas</a></li>
+			<li><a href='#tabs-3'>Imagenes</a></li>
+			<li><a href='#tabs-4'>Comentarios</a></li>
 			</ul>
+
+	<div id='tabs-0'>
+		
+	<p>Precio \$ ".number_format($numero,0,",",".")."
+	<p>Peso ".$consulta->fields['peso']." Kg</p>
+	
+	<p>Existencias disponibles ".$consulta->fields['existencias']."
+	</div>
+
 	<div id='tabs-1'>
-		<p>".$fila['descripcion']."<p/>
+		<p>".$consulta->fields['descripcion']."<p/>
 	</div> ";
 	echo"<div id='tabs-2'>
-	 <p>Medidas Longitud: ".$fila['longitud']." <br> Anchura : ".$fila['anchura']."  <br>Altura : ".$fila['altura']." </p>
+	 <p>Medidas Longitud: ".$consulta->fields['longitud']." <br> Anchura : ".$consulta->fields['anchura']."  <br>Altura : ".$consulta->fields['altura']." </p>
 	</div> ";
 
-	}
+	echo"<div id='tabs-3'>
+<img src='photo/".$consulta2->fields['imagen']."' width=100px>
+	
+	
+	</div> ";
+$consulta2->moveNext();
+	echo"<div id='tabs-4'>
+	 
+	</div> ";
+
 	echo "<br>";
-	echo "<button value='".$fila['id']."'class='botoncompra btn btn-default'> Agregar al carro </button>";
+	echo "<button value='".$consulta->fields['id']."'class='botoncompra btn btn-default'> Agregar al carro </button>";
 	echo"</div>
 	</div>";
-	}
-		
-mysql_close($conexion);
+
+	$consulta->moveNext();
+}	
 ?>
 </div>
 </div>

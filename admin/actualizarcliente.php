@@ -2,6 +2,7 @@
 <?php 
 include ("../config/config.php");
 	
+$id=$conn->QSTR($_GET["id"],get_magic_quotes_gpc());
 
 $consulta=$conn->Execute("SELECT *from clientes WHERE id=$id");
 while(!$consulta->EOF){

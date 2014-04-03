@@ -32,70 +32,49 @@
           <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
               <li class="active"><a href="index.php">Inicio</a></li>
-              <li><a href="#nosotros">Nosotros</a></li>
+              <li><a href="">Nosotros</a></li>
               <li><a href="index2.php">Productos</a></li>
-              <li><a href="#contacto">Contacto</a></li>  
+              <li><a href="contacto.php">Contacto</a></li>  
             </ul>
           </div>
       </div>
     </div>
   </div>
 </div>
-  <div id="myCarousel" class="carousel slide " data-ride="carousel">
-  <!-- Indicators -->
-    <ol class="carousel-indicators">
-      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-      <li data-target="#myCarousel" data-slide-to="1"></li>
-      <li data-target="#myCarousel" data-slide-to="2"></li>
-      <li data-target="#myCarousel" data-slide-to="3"></li>
-      <li data-target="#myCarousel" data-slide-to="4"></li>
-      <li data-target="#myCarousel" data-slide-to="5"></li>
-    </ol>
-      <div class="carousel-inner">
-        <div class="active item"><img  src="img/logoferretaller.png"/></div>
-        <div class="item"><img  src="img/logo.fw.png" /></div>
-        <div class="item"><img  src="img/1.jpg"  /></div>
-        <div class="item"><img  src="img/2.jpg"  /></div>
-        <div class="item"><img   src="img/3.jpg" /></div>
-      </div>
-        <a class="left carousel-control" href="#myCarousel" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
-        <a class="right carousel-control" href="#myCarousel" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
-  </div>
 <div id="nosotros">
   <div class="container">
   <div class="row-fluid">
     <div id="divisiones" class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-      <img class="img-circle" src="img/nosotros.jpg" alt="Responsive imagen">
+      <img class="img-circle img-responsive " data-src="holder.js/200x200/auto" alt="Responsive imagen">
       <h2>Nosotros</h2>
       <p>Conozca mas sobre nuestra empresa,nuestros inicio, mision, vision y mas ... </p>
       <p><a class="btn btn-default" href="#" role="button">Ver mas &raquo;</a></p>
     </div><!-- /.col -->
     <div id="divisiones" class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-        <img class="img-circle" src="img/experiencia.jpg" alt="Generic placeholder image">
+        <img class="img-circle img-responsive " data-src="holder.js/200x200/auto" alt="Generic placeholder image">
         <h2>Experiencia y Calidad</h2>
         <p>Llevamos mas de 10 años en el departamento del Meta siendo lideres en el diseño y la construccion de estructuras a gran nivel 
           con los mas altos estandares de calidad...</p>
     </div><!-- /.col -->
     <div id="divisiones" class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-        <img class="img-circle" src="img/servicios.jpg" alt="Generic placeholder image">
+        <img class="img-circle img-responsive " data-src="holder.js/200x200/auto" alt="Generic placeholder image">
         <h2>Productos y Servicios</h2>
         <p>Podras encontrar la mas completa variedad de articulos para sus obras o visitarnos en nuestra tienda online para conocer nuestros productos...</p>
         <p><a class="btn btn-default" href="index2.php" role="button">Ver productos &raquo;</a></p>
     </div><!-- /.col -->
   </div><!-- /.row -->
 </div>
-</div> <!-- /.container -->
+</div> <!-- /.nosotros -->
 
 <div id="marketing" class="container">
   <div class="col-md-7">
-
     <h2 class="featurette-heading">Visita nuestra tienda online <span class="text-muted">Ingresa.</span></h2>
     <p class="lead">Encontraras gran variedad de productos con la posibilidad de comprar desde tu smartphone, tablet o computador. Rapido y Facil,
     No nos depositas dinero, !Pagas contraentrega! </p>
-  </div> <!-- col -->
+  </div> 
   <div class="col-md-5">
-    <img class="featurette-image img-responsive img-circle" src="img/laptop.jpg" alt="Generic placeholder image">
-  </div> <!-- col -->
+    <img class="featurette-image img-responsive img-circle" src="img/tiendaonline.fw.png" alt="Generic placeholder image">
+  </div> 
 </div> <!-- container marketing -->
 
 <hr class="featurette-divider">
@@ -103,30 +82,65 @@
 <div id="marketing" class="container">
   <div class="col-md-7">
      <img class="featurette-image img-responsive" data-src="holder.js/500x500/auto" alt="Generic placeholder image">
-  </div> <!-- col -->
+  </div> 
   <div class="col-md-5">
     <h2 class="featurette-heading"> Te enviamos tus productos <br> <span class="text-muted">Servicio de entrega.</span></h2>
     <p class="lead">En nuestra tienda online tenemos nuestro propio servicio de entrega de productos, !Aprovecha! </p>
-  </div> <!-- col -->
+  </div> 
 </div> <!-- container marketing2 -->
+ 
+<hr class="featurette-divider">
 
+<div id="marketing" class="container">
+<div class="col-md-6">
+    <h2 class="featurette-heading"> Ferreteria Hernandez Hermanos <br> <span class="text-muted">Calle 15 # 25-29  </span> <br>
+<span class="text-muted">Telefonos : 656673737, 3202465647</span> <br>
+<span class="text-muted">Acacias-Meta</span>
+    </h2>
+  </div> 
 
-<div id="contacto" class="container">
-  <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 ">
- <center>  Contacte con Nosotros </center>
-  
-  </div>
-     <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-       <a href="php/contacto.php"><img class="img-circle img-responsive" target="_blank" src="img/contacto.fw.png" alt="Generic placeholder image"> </a>
-     </div>
-   <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-
-   <a href="tel:+573118093419"><img class="img-circle img-responsive" src="img/contactollamada.fw.png" alt="Generic placeholder image"> </a>
-  </div>
-  </div>
+  <div class="col-md-6">
+        <div id="google_canvas"/>
+  </div> <!-- container marketing2 -->
 </div>
-<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
 
+    <script type="text/javascript"
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBjSx9xC0sVQc-EcJM3hdJTj2Efka_aMYY&sensor=true">
+    </script>
+   
+<script>
+var myCenter=new google.maps.LatLng(3.988056,-73.764082);
+
+function initialize()
+{
+var mapProp = {
+  center:myCenter,
+  zoom:17,
+  mapTypeId:google.maps.MapTypeId.ROADMAP
+  };
+
+var map=new google.maps.Map(document.getElementById("google_canvas"),mapProp);
+
+var marker=new google.maps.Marker({
+  position:myCenter,
+animation:google.maps.Animation.BOUNCE
+  });
+
+marker.setMap(map);
+
+var infowindow = new google.maps.InfoWindow({
+  content:"Ferreteria Hernandez Hermanos <img src='img/ol.fw.png'/>"
+  });
+
+google.maps.event.addListener(marker, 'click', function() {
+  infowindow.open(map,marker);
+  });
+}
+
+google.maps.event.addDomListener(window, 'load', initialize);
+</script>
+</script>
+</div>
 <?php include"php/piedepagina.php"; ?>
 </body>
 </html>

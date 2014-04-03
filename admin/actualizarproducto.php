@@ -1,3 +1,4 @@
+<?php include("cabecera.php");		?>
 <table border="1">
 <?php 
 include ("../config/config.php");
@@ -45,3 +46,6 @@ while(!$consulta->EOF){
 
 ?>
 </table>
+
+
+<?php include("piedepagina.php");		?>

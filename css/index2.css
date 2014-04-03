@@ -1,19 +1,13 @@
-#enmarcado {
-background-image: url("http://cristianhernandez.1nica.com/img/pattern_white.jpg");
-width: 100%;
-}
-
 #productos {
 margin-top: 0px;
   background: none;
-
 }
 
 .tituloproducto{
-
 	font-size: 50px;
 }
 .paneldestacados {
+	width: 100%;
 margin-bottom: 40px;
 border: 10px solid transparent;
 border-radius: 4px;

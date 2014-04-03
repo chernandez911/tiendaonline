@@ -12,7 +12,7 @@
 	
 <div id="head" class="container">
 
-<img src="../img/logoferretaller.png"/>
+<img class="img-responsive" src="../img/logoferretaller.png"/>
 
 </div>
 

@@ -1,43 +1,14 @@
 <?php include("cabecera.php");		?>
-<table>
-	
-<?php 
-include ("../config/config.php");
-	echo "<tr><td>Nombre del producto</td>
-	<td>Precio</td>
-	<td>Medidas</td>
-	<td>Peso</td>
-	<td>Existencias</td>
-	<td>Estado</td></tr>";
-	
-$consulta=$conn->Execute("SELECT *from productos");
-while(!$consulta->EOF){	
-$estado_producto=$consulta->fields['estado_producto'] ;
+<div class="container">
+<div class="col-md-4">
+    <a href="insertarproducto.php" > <img class="featurette-image img-responsive img-circle" src="../img/tiendaonline.fw.png" alt="Generic placeholder image"> </a>
+</div>
+<div class="col-md-4">
+        <a href="actualizaproducto.php" > <img class="featurette-image img-responsive img-circle" src="../img/tiendaonline.fw.png" alt="Generic placeholder image"> </a>
+</div>
+<div class="col-md-4">
+        <a href="eliminarproducton.php" > <img class="featurette-image img-responsive img-circle" src="../img/tiendaonline.fw.png" alt="Generic placeholder image"> </a>
 
-switch($estado_producto){
-	case 0:$digaestado= "No Activo"; break;
-	case 1:$digaestado= "Activo"; break;
-	}
-
-	echo'<tr>
-	<td>'.$consulta->fields['nombre'].'</td>
-	<td>'.$consulta->fields['precio'].'</td>
-	<td>Longitud:'.$consulta->fields['longitud'].''."<br>".'Anchra'.$consulta->fields['anchura'].''."<br>".'Altura'.$consulta->fields['altura'].
-	'<td>'.$consulta->fields['peso'].'</td><td>'.$consulta->fields['existencias'].'</td>
-	<td';
-	switch($estado_producto){
-	case 0:echo' style="background:rgb(255,200,200);"'; break;
-	case 1:echo' style="background:rgb(200,255,200);"'; break;
-	}
-	echo'>'.$digaestado.'</td>
-	<td><a href="actualizarproducto.php?id='.$consulta->fields['id'].'"><button>Actualizar Producto</button> </a></td>
-	<td><a href="eliminarproducto.php?id='.$consulta->fields['id'].'"><button>Eliminar Producto</button> </a></td>
-	</tr>';
-
-	$consulta->moveNext();
-}
-?>
-
-<a href="insertarproducto.php"> Insertar producto </a>
-</table>
+</div>
+</div>
 <?php include("piedepagina.php");		?>

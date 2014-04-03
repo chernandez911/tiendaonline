@@ -13,6 +13,7 @@ $direccion=$conn->QSTR($_POST["direccion"],get_magic_quotes_gpc());
 $consulta1=$conn->Execute("INSERT INTO clientes VALUES (NULL,$nombre,$apellidos,$email,SHA($usuario),SHA($contrasena),'',$celular,'',$direccion)");
 
 echo'<script type="text/javascript">
+
 alert("Su usuario fue creado con exito,ya puede comprar con su usuario, BIENVENIDO!!!!");
 </script>';
 

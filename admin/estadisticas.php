@@ -2,54 +2,46 @@
 <?php 
 include ("../config/config.php");
 	
-$consulta=mysql_query("SELECT id_producto, productos.nombre, COUNT( id_producto )
-FROM lineaspedido
-LEFT JOIN productos ON lineaspedido.id_producto = productos.id
-GROUP BY id_producto
-ORDER BY COUNT( id_producto ) DESC
-LIMIT 1 ");
+$consulta=$conn->Execute("SELECT id_producto, productos.nombre, COUNT( id_producto ) FROM lineaspedido
+LEFT JOIN productos ON lineaspedido.id_producto = productos.id GROUP BY id_producto ORDER BY COUNT( id_producto ) DESC LIMIT 1 ");
 
-while($fila=mysql_fetch_array($consulta)){
 
-	echo"El producto mas comprado es ".$fila['nombre'];
+while(!$consulta->EOF){
+echo"El producto mas comprado es ".$consulta->fields['nombre'];
+$consulta->moveNext();
 }
-
 echo "<br>";
 echo "Los productos mas comprados";
 echo ("<table border='1'>");
 
-$consulta2=mysql_query("SELECT id_producto, productos.nombre, COUNT(id_producto)FROM lineaspedido LEFT JOIN productos ON lineaspedido.id_producto = productos.id GROUP BY id_producto ORDER BY COUNT( id_producto ) DESC ");
+$consulta2=$conn->Execute("SELECT id_producto, productos.nombre, COUNT(id_producto)FROM lineaspedido LEFT JOIN productos 
+							ON lineaspedido.id_producto = productos.id GROUP BY id_producto ORDER BY COUNT( id_producto ) DESC ");
 
-while($fila=mysql_fetch_array($consulta2)){
-
-	echo"<tr><td>".$fila['nombre']."</td><td>".$fila['COUNT(id_producto)']."</td></tr>";
+while(!$consulta2->EOF){
+	echo"<tr><td>".$consulta2->fields['nombre']."</td><td>".$consulta2->fields['COUNT(id_producto)']."</td></tr>";
+$consulta2->moveNext();
 }
-
 echo"</table>";
-
-
 echo ("<table border='1'>");
 
-$consulta2=mysql_query(" SELECT clientes.nombre,clientes.apellidos,SUM(unidades*precio) FROM `pedidos` LEFT JOIN lineaspedido ON pedidos.id = lineaspedido.id_pedido LEFT JOIN productos ON lineaspedido.id_producto=productos.id LEFT JOIN clientes ON pedidos.id_cliente=clientes.id GROUP BY id_cliente ORDER BY SUM(precio) DESC LIMIT 1;");
+$consulta3=$conn->Execute(" SELECT clientes.nombre,clientes.apellidos,SUM(unidades*precio) FROM `pedidos` LEFT JOIN lineaspedido ON pedidos.id = lineaspedido.id_pedido LEFT JOIN productos ON lineaspedido.id_producto=productos.id LEFT JOIN clientes ON pedidos.id_cliente=clientes.id GROUP BY id_cliente ORDER BY SUM(precio) DESC LIMIT 1;");
 
-while($fila=mysql_fetch_array($consulta2)){
-echo"El mejor cliente de la tienda es :".$fila['nombre']."".$fila['apellidos']." Ha comprado con nosotros: $".$fila['SUM(unidades*precio)']."pesos";
-echo"</table>";
+while(!$consulta3->EOF){
+echo"El mejor cliente de la tienda es :".$consulta3->fields['nombre']."".$consulta3->fields['apellidos']." Ha comprado con nosotros: $".$consulta3->fields['SUM(unidades*precio)']."pesos";
+echo"</table>";	
+$consulta3->moveNext();
 }
 
 echo "Los 10 mejores clientes";
 echo ("<table border='1'>");
 
-$consulta2=mysql_query("SELECT clientes.nombre,clientes.apellidos,SUM(unidades*precio) FROM `pedidos` LEFT JOIN lineaspedido ON pedidos.id = lineaspedido.id_pedido LEFT JOIN productos ON lineaspedido.id_producto=productos.id LEFT JOIN clientes ON pedidos.id_cliente=clientes.id GROUP BY id_cliente ORDER BY SUM(precio) DESC LIMIT 10; ");
+$consulta4=$conn->Execute("SELECT clientes.nombre,clientes.apellidos,SUM(unidades*precio) FROM `pedidos` LEFT JOIN lineaspedido ON pedidos.id = lineaspedido.id_pedido LEFT JOIN productos ON lineaspedido.id_producto=productos.id LEFT JOIN clientes ON pedidos.id_cliente=clientes.id GROUP BY id_cliente ORDER BY SUM(precio) DESC LIMIT 10; ");
+while(!$consulta4->EOF){
 
-while($fila=mysql_fetch_array($consulta2)){
+		echo"<tr><td>".$consulta4->fields['nombre']."</td><td>".$consulta4->fields['apellidos']."</td><td> $".$consulta4->fields['SUM(unidades*precio)']." pesos</td></tr>";
 
-	echo"<tr><td>".$fila['nombre']."</td><td>".$fila['apellidos']."</td><td> $".$fila['SUM(unidades*precio)']." pesos</td></tr>";
+$consulta4->moveNext();
 }
-
 echo"</table>";
-mysql_close($conexion);
 ?>
-
-
 <?php include("piedepagina.php");		?>

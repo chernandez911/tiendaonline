@@ -1,14 +1,11 @@
-<?php include"/config/config.php";  ?>
-<<<<<<< HEAD
-<?php 
+<?php include "config/config.php";  ?>
+<?php  
 session_start();
 if(!isset($_SESSION['contador']))
 { 
   $_SESSION['contador']=0;
 }
  ?>
-=======
->>>>>>> design
 <!doctype html>
 <html lang="es">
 <head>
@@ -46,16 +43,11 @@ if(!isset($_SESSION['contador']))
                 <li class="active"><a href="index.php">Inicio</a></li>
                 <li><a href="index.php#nosotros">Nosotros</a></li>
                 <li><a href="index2.php">Productos</a></li>
-                <li><a href="index.php#contacto">Contacto</a></li> 
+                <li><a href="contacto.php">Contacto</a></li> 
               </ul>
             </div>
           </div>
         </div>
-      </div>
-    </div>
- <div class="jumbotron">
-      <div class="container">
-        <h1><p class="navbar-text pull-left"></p>Hola, Bienvenido!  </h1>
       </div>
     </div>
 <div id="cabecera" class="container">
@@ -74,6 +66,7 @@ if(!isset($_SESSION['contador']))
         }                     
         ?>
     </div>
+  </div>
 
 		</div>
 		<div class=" col-md-3 col-xs-4 col-sm-2 ">	

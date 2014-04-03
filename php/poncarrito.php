@@ -18,6 +18,8 @@ for($i=0;$i<($_SESSION['contador']);$i++)
 			echo("<table class='table'>");
 			echo "<tr><td>". $_SESSION['unidades'][$i]."</td><td>".$consulta->fields['nombre']."</td><td>\$ ". number_format(($_SESSION['unidades'][$i]*$consulta->fields['precio']),0,",",".")."</td></tr>";
 			$suma+=$consulta->fields['precio'] *  $_SESSION['unidades'][$i];
+
+			
 			$consulta->moveNext();
 		}
 }

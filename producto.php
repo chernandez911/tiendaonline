@@ -29,9 +29,9 @@ while (!$consulta->EOF){
 
 $consulta2=$conn->Execute("select *from imagenesproductos WHERE id_producto=$id");
 
-	echo"<div class='col-sm-4 col-md-4 col-lg-4 '>";
+	echo"<div class='col-sm-2 col-md-2 col-lg-2 '>";
 	echo"</div>";
-	echo"<div class='col-xs-12 col-sm-8 col-md-8 col-lg-8 '>";
+	echo"<div class='col-xs-12 col-sm-10 col-md-10 col-lg-10 '>";
 	echo "<a class='tituloproducto' href='producto.php?id=".$consulta->fields['id']."'>".$consulta->fields['nombre']."</a>";	
 	$numero = $consulta->fields['precio'];
 	echo"
@@ -49,7 +49,9 @@ $consulta2=$conn->Execute("select *from imagenesproductos WHERE id_producto=$id"
 	<p>Precio \$ ".number_format($numero,0,",",".")."
 	<p>Peso ".$consulta->fields['peso']." Kg</p>
 	
-	<p>Existencias disponibles ".$consulta->fields['existencias']."
+	<p>Existencias disponibles ".$consulta->fields['existencias']." <br>
+
+	Comprar:<input type='number' class='btn btn-default' value='1' max='10' min='1' id='numero".$consulta->fields['id']."'>
 	</div>
 
 	<div id='tabs-1'>
@@ -70,7 +72,7 @@ $consulta2->moveNext();
 	</div> ";
 
 	echo "<br>";
-	echo "<button value='".$consulta->fields['id']."'class='botoncompra btn btn-default'> Agregar al carro </button>";
+	echo "<button class='progress-button botoncompra btn btn-default' data-style='fill' value='".$consulta->fields['id']."' data-horizontal>Agregar a mis compras </button>";
 	echo"</div>
 	</div>";
 

@@ -1,5 +1,4 @@
 <?php include"php/cabecera.php" ?>
-<br>
 <div class="row-fluid">
   <div class="col-md-6">
     <legend> Ya estas registrado, Ingresa </legend> 

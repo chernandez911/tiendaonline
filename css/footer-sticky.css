@@ -2,14 +2,16 @@ html, body {
     height: 100%;
 }
 #contenedor {
-    min-height: 100%;
+	min-height: 100%;
     height: auto !important;
     height: 100%;
-    background-image: url("http://cristianhernandez.1nica.com/img/pattern_white.jpg");
+    background-image: url("http://cristianhernandez.hol.es/img/pattern_white.jpg");
 }
 #footer{
     height: auto;
-    background: url("http://cristianhernandez.1nica.com/img/footer.jpg") ;
+    background: url("http://cristianhernandez.hol.es/img/contacto.fw.png") ;
+}
+
 }
 /* Marcadores Sociales */
 ul#marcadores{
@@ -25,7 +27,7 @@ padding: 0;
 float: left;
 }
 #marcadores li a{
-background: url(http://cristianhernandez.1nica.com/img/footer2.fw.png) no-repeat 0 0;
+background: url("http://cristianhernandez.hol.es/img/footer.png") no-repeat 0 0;
 margin: 0;
 padding: 0;
 display: block;

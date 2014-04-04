@@ -15,7 +15,6 @@ $consulta1=$conn->Execute("INSERT INTO clientes VALUES (NULL,$nombre,$apellidos,
 while(!$consulta1->EOF){
 
 	$consulta1->moveNext();
-
 }
 ?>
 <script type="text/javascript">

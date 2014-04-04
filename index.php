@@ -81,7 +81,7 @@
 
 <div id="marketing" class="container">
   <div class="col-md-7">
-     <img class="featurette-image img-responsive" data-src="holder.js/500x500/auto" alt="Generic placeholder image">
+     <img class="featurette-image img-responsive img-circle" src="img/flotadeentrega.fw.png" alt="Generic placeholder image">
   </div> 
   <div class="col-md-5">
     <h2 class="featurette-heading"> Te enviamos tus productos <br> <span class="text-muted">Servicio de entrega.</span></h2>

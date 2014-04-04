@@ -5,11 +5,13 @@
 		<link rel="stylesheet" href="../css/estiloadmin.css">
 		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-		<script type="text/javascript" src="js/jquery.js"></script>
-		<script type="text/javascript" src="js/bootstrap.js"></script>
-		<script type="text/javascript" src="js/bootstrap.min.js"></script>
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-  		<link rel="stylesheet" type="text/css" href="../css/bootstrap.css">
+  		  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<script type="text/javascript" src="../js/jquery.js"></script>
+	<script type="text/javascript" src="../js/codigo.js"></script>
+	<script type="text/javascript" src="../js/bootstrap.js"></script>
+	<script type="text/javascript" src="../js/bootstrap.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="../css/bootstrap.css">
 		<title>Panel de Control- Administrador</title>
 	</head>
 	<body>

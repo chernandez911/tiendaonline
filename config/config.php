@@ -1,6 +1,5 @@
 <?php 
-
-include('/adodb/adodb.inc.php');  
+include('adodb/adodb.inc.php');  
 $server='localhost'; 
 $user='root'; 
 $pass=''; 

@@ -35,4 +35,6 @@ echo('<div id="productos" class="row col-xs-12 col-sm-6 col-md-4 col-lg-4">
 </div>
 </body>
 </html>
-<?php include"php/piedepagina.php";?>
+<?php 
+include"php/piedepagina.php"
+?>

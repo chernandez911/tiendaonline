@@ -1,15 +1,16 @@
-<?php include("cabecera.php");      ?>
 <?php 
+include("cabecera.php");    
 include ("../config/config.php");
+
 $consulta=$conn->Execute("SELECT *from clientes");
-while(!$consulta->EOF){
+
+while(!$consulta->EOF)
+{
 
 echo '<div class="container">';
-
 echo '<div class="table-responsive">';
-
 echo '<table class="table table-striped">';
-
+echo'<p style="font-size:32px; font-family:Aubrey;"> Usuarios Registrados</p>';
 echo '<thead><tr><td>Nombre</td><td>Apellidos</td><td>E-mail</td><td>Telefono</td><td>Celular</td><td>Fax</td><td>Direccion</td></thead>';
 	echo "<tbody><tr><td>".$consulta->fields['nombre']."</td>
     <td>".$consulta->fields['apellidos']."</td>
@@ -20,12 +21,10 @@ echo '<thead><tr><td>Nombre</td><td>Apellidos</td><td>E-mail</td><td>Telefono</t
     <td>".$consulta->fields['direccion']."</td>
     <td><a href='actualizarcliente.php?id=".$consulta->fields['id']."''><button>Actualizar Cliente</button> </a></td>
     </tr></tbody>";
-
     echo "</table>";
    echo '</div>';
-   echo '</div>'; 
+   echo '</div>';
   $consulta->moveNext();
-}
-  
+} 
 ?>
 <?php include("piedepagina.php");       ?>

@@ -7,6 +7,7 @@
     <table class="table">
 
     <form class="form-horizontal" role="form" action="nuevocliente.php" method="post">
+      <p style="font-size:32px; font-family:Aubrey;"> Datos del usuario </p>
   <div class="form-group">
     <label class="col-sm-2 control-label">Nombre</label>
     <div class="col-sm-10">

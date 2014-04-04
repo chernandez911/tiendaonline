@@ -10,7 +10,7 @@
 	<div class="col-md-4">
 		<br>
 	    <a href=""> Mi cuenta </a> <br>
-	    <a href="admin/"> Administrador </a> <br>
+	    <a href="admin/index.php"> Administrador </a> <br>
 	</div>
 			<div class="col-md-4">
 				<p style="color:white">Siguenos en: </p> 

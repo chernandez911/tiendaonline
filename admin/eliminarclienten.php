@@ -9,6 +9,7 @@ echo '<div class="container">';
 echo '<div class="table-responsive">';
 
 echo '<table class="table table-striped">';
+echo'<p style="font-size:32px; font-family:Aubrey;">Eliminar usuarios registrados</p>';
 
 echo '<thead><tr><td>Nombre</td><td>Apellidos</td><td>E-mail</td><td>Telefono</td><td>Celular</td><td>Fax</td><td>Direccion</td></thead>';
 	echo "<tbody><tr><td>".$consulta->fields['nombre']."</td>

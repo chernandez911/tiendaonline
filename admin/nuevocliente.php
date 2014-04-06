@@ -13,7 +13,6 @@ $direccion=$conn->QSTR($_POST["direccion"],get_magic_quotes_gpc());
 
 $consulta1=$conn->Execute("INSERT INTO clientes VALUES (NULL,$nombre,$apellidos,$email,SHA($usuario),SHA($contrasena),$telefono,$celular,$fax,$direccion)");
 while(!$consulta1->EOF){
-
 	$consulta1->moveNext();
 }
 ?>

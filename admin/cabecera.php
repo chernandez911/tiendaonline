@@ -1,4 +1,7 @@
 <!doctype html>
+<?php
+error_reporting(E_ALL  and ~ E_NOTICE  and ~ E_DEPRECATED) ;
+ ?>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
 <html lang="es">
 	<head>
@@ -6,34 +9,35 @@
 		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-  		  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-	<script type="text/javascript" src="../js/jquery.js"></script>
-	<script type="text/javascript" src="../js/codigo.js"></script>
-	<script type="text/javascript" src="../js/bootstrap.js"></script>
-	<script type="text/javascript" src="../js/bootstrap.min.js"></script>
-  <link rel="stylesheet" type="text/css" href="../css/bootstrap.css">
-		<title>Panel de Control- Administrador</title>
+  		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+		<script type="text/javascript" src="../js/jquery.js"></script>
+		<script type="text/javascript" src="../js/codigo.js"></script>
+		<script type="text/javascript" src="../js/bootstrap.js"></script>
+		<script type="text/javascript" src="../js/bootstrap.min.js"></script>
+  		<link rel="stylesheet" type="text/css" href="../css/bootstrap.css">
+	<title>Panel de Control- Administrador</title>
 	</head>
-	<body>
-		<div id="contenedor">
-			<div id="titulopanel" class="row-fluid">
-				<div class="col-md-6">
-					<a href="index.php"> Panel De Control</a>
+<body>
+	<div id="contenedor">
+		<div id="titulopanel" class="row-fluid">
+			<div class="col-md-6">
+				<a href="index.php"> Panel De Control</a>
+			</div>
+			<div class="col-md-6">
+				<div class="col-md-6">	
 				</div>
-				<div class="col-md-6">
 					<div class="col-md-6">
-						
-					</div>
-					<div class="col-md-6">
-						<div class="col-md-6"></div>
+						<div class="col-md-6">
+							
+						</div>
 						<div class="col-md-6">
 							<form action="../admin/logout.php" metho="post">
 								<input type="submit" value="Salir" name="logout">
 							</form>
 						</div>
 					</div>
-				</div>
 			</div>
+		</div>
 <div class="navbar-wrapper">
       <div class="container">
         <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -58,8 +62,8 @@
 				</ul> 
             </div>
            </div>
-         </div>
-      </div>
+          </div>
+     	</div>
 </div>     
             <div id="contenido" class="container col-md-12 col-xs-12 col-sm-12 col-lg-12">
             </div>

@@ -26,7 +26,7 @@
 </body>
 </html>
 <?php 
-include("config/config.php");
+include('./config/config.php');
 $consulta=$conn->Execute("INSERT INTO registros VALUES ('".date('U')."',
 '".date('Y')."',
 '".date('m')."',

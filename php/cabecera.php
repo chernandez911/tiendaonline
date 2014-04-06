@@ -1,11 +1,11 @@
-<?php include "config/config.php";  ?>
-<?php  
+<?php 
+error_reporting(E_ALL  and ~ E_NOTICE  and ~ E_DEPRECATED) ;
 session_start();
 if(!isset($_SESSION['contador']))
 { 
-  $_SESSION['contador']=0;
+ $_SESSION['contador']=0;
 }
- ?>
+?>
 <!doctype html>
 <html lang="es">
 <head>
@@ -56,6 +56,7 @@ if(!isset($_SESSION['contador']))
     <div class="list-group">
        <a class='list-group-item active'>Categorias</a></li>
         <?php 
+        include "./config/config.php";
         $consulta=$conn->Execute("SELECT categoria.id, categoria.nombre_categoria, COUNT(id_categoria)FROM productos 
                   LEFT JOIN categoria ON productos.id_categoria = categoria.id
                   GROUP BY id_categoria ORDER BY COUNT( id_categoria ) DESC");
@@ -66,14 +67,12 @@ if(!isset($_SESSION['contador']))
         }                     
         ?>
     </div>
-  </div>
-
-		</div>
-		<div class=" col-md-3 col-xs-4 col-sm-2 ">	
+    </div>
+	</div>
+	 <div class=" col-md-3 col-xs-4 col-sm-2 ">	
 		</div>
 		<div class="col-md-3 col-sm-2 ">
 		</div>
-
 
 		<div class="col-md-3 col-sm-6 ">
 			<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">Mis compras</button>

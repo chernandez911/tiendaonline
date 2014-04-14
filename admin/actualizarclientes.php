@@ -1,7 +1,11 @@
 <?php 
+session_start();
+if(!isset($_SESSION['usuario'])) 
+{
+  header('Location: login.php'); 
+  exit();
+}
 include ("../config/config.php");
-	
-
 $nombre=$conn->QSTR($_POST["nombre"],get_magic_quotes_gpc());
 $apellidos=$conn->QSTR($_POST["apellidos"],get_magic_quotes_gpc());
 $email=$conn->QSTR($_POST["email"],get_magic_quotes_gpc());

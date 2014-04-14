@@ -1,7 +1,4 @@
 <!doctype html>
-<?php
-error_reporting(E_ALL  and ~ E_NOTICE  and ~ E_DEPRECATED) ;
- ?>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
 <html lang="es">
 	<head>
@@ -57,7 +54,7 @@ error_reporting(E_ALL  and ~ E_NOTICE  and ~ E_DEPRECATED) ;
 					<li> <a href="pedidos.php" class="botonesadmin">Pedidos</a></li>
 					<li><a href="clientes.php" class="botonesadmin">Clientes</a></li>
 					<li> <a href="productos.php" class="botonesadmin">Productos</a></li> 
-					<li>  <a href="categorias.php" class="botonesadmin">Categorias</a> </li> 
+					<li>  <a href="categoria.php" class="botonesadmin">Categorias</a> </li> 
 					<li>  <a href="estadisticas.php" class="botonesadmin">Estadisticas</a> </li>
 				</ul> 
             </div>

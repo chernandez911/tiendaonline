@@ -1,8 +1,9 @@
-<?php include("cabecera.php");		?>
-<?php 
+<?php
 session_start();
-if($_SESSION['activo']==false){
-header("Location:../admin/login.php");
-} 
-?>
-<?php include("piedepagina.php");?>
+if(!isset($_SESSION['usuario'])) 
+{
+  header('Location: login.php'); 
+  exit();
+}
+include("cabecera.php");
+include("piedepagina.php");?>

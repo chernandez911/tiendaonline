@@ -1,4 +1,10 @@
 <?php 
+session_start();
+if(!isset($_SESSION['usuario'])) 
+{
+  header('Location: login.php'); 
+  exit();
+}
 include("cabecera.php"); 
 include ("../config/config.php");
 $consulta=$conn->Execute("SELECT *from clientes");

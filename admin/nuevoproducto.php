@@ -1,4 +1,10 @@
 <?php 
+session_start();
+if(!isset($_SESSION['usuario'])) 
+{
+  header('Location: login.php'); 
+  exit();
+}
 include ("../config/config.php");
 
 $nombre=$conn->QSTR($_POST["nombre"],get_magic_quotes_gpc());
@@ -13,7 +19,6 @@ $estado_producto=$conn->QSTR($_POST["estado_producto"],get_magic_quotes_gpc());
 $categoria=$conn->QSTR($_POST["categorias"],get_magic_quotes_gpc());
 $destacado=$conn->QSTR($_POST["destacado"],get_magic_quotes_gpc());
 
-
 $consulta=$conn->Execute("INSERT INTO productos VALUES (NULL,$nombre,$descripcion,$precio,$peso,$longitud,$anchura,$altura,
 						$existencias,$estado_producto,$destacado,$categoria)");
 	
@@ -21,8 +26,8 @@ $consulta2=$conn->Execute("SELECT *FROM productos ORDER BY id DESC LIMIT 1");
 
 while(!$consulta2->EOF)
 {
-	$identificador=$consulta2->fields['id'];
-$consulta2->moveNext();
+	$_SESSION['id_producto']=$consulta2->fields['id'];
+	$consulta2->moveNext();
 }
 
 if($_FILES['imagen']['type'] == "image/gif" || $_FILES['imagen']['type'] == "image/jpeg" || $_FILES['imagen']['type'] == "image/jpg" || $_FILES['imagen']['type'] == "image/png" )
@@ -30,11 +35,12 @@ if($_FILES['imagen']['type'] == "image/gif" || $_FILES['imagen']['type'] == "ima
 move_uploaded_file($_FILES['imagen']['tmp_name'],"../photo/".$_FILES['imagen']['name']);
 }
 
-$consulta3=$conn->Execute("INSERT INTO imagenesproductos VALUES (NULL,'".$_FILES['imagen']['name']."','','','".$identificador."')");
+$consulta3=$conn->Execute("INSERT INTO imagenesproductos VALUES (NULL,'".$_FILES['imagen']['name']."','','','".$_SESSION['id_producto']."')");
 
+
+echo'<script type="text/javascript"> alert("El producto fue creado con exito");</script>';
 
 ?>
-
 <script type="text/javascript">
 window.location="productos.php";
 </script>

@@ -1,4 +1,10 @@
 <?php 
+session_start();
+if(!isset($_SESSION['usuario'])) 
+{
+  header('Location: login.php'); 
+  exit();
+}
 include("cabecera.php");
 include ("../config/config.php");
 
@@ -68,6 +74,7 @@ echo'		<form action="actualizar.php?id='.$consulta->fields['id'].'" method="post
 														</select>
 													</td>
 												</tr>
+		
 													<td><button type='submit' class='btn btn-success'>Actualizar Producto</button></td>
 			</form>";
 	echo "		</table>";

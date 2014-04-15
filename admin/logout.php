@@ -1,5 +1,6 @@
-<?php
-session_start();
-session_destroy();
+<?php 
+ session_start();
+ $_SESSION = array();
+ session_destroy();
+ header("location:../index.php");
 ?>
-<script>window.location = "../index.php";</script>

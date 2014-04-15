@@ -6,8 +6,7 @@ if(!isset($_SESSION['cliente']))
   exit();
 }
 include ("../config.php");
-$id=$conn->QSTR($_POST["id"],get_magic_quotes_gpc());
-$consulta=$conn->Execute("SELECT *FROM clientes WHERE id=$id");
+$consulta=$conn->Execute("SELECT *FROM clientes WHERE id=".$_SESSION['id']."");
 while (!$consulta->EOF)
 {
 echo ("".$consulta->fields['nombre']."");

@@ -1,33 +1,22 @@
 <?php
 session_start();
-if(!isset($_SESSION['usuario'])) 
+if(!isset($_SESSION['cliente'])) 
 {
   header('Location: login.php'); 
   exit();
 }
-include("cabecera.php");?>
+include("cabecera.php");
+?>
+<div class="row-fluid">
 <div class="col-md-4">
-	
-<?php include("../config.php");
-
-$consulta=$conn->Execute("SELECT *FROM clientes WHERE id=".$_SESSION['id']."");
-echo'<a href="misdatos.php?id='.$_SESSION['id'].'">Mis Datos personales </a>';
- ?>
-
-<form class="form-signin" role="form" action="misdatos.php" method="post">
-<p> Inicio de Sesion </p> 
-    <h2 class="form-signin-heading"></h2>
-    <input class="form-control" name="user" <?php echo'value="'.$_SESSION['id'].'"' ?>required="required" placeholder="Usuario"></input>
-    <button class="btn btn-lg btn-primary btn-block" type="submit">Iniciar Sesión</button>
-
-</form>
-
-	
+	<a href="estadopedido.php"><img class="featurette-image img-responsive" src="../img/mispedidos.fw.png"> </a>
+</div>
+<div class="col-md-4">	
+	<a href="misdatos.php"><img class="featurette-image img-responsive" src="../img/misdatos.fw.png"> </a>
 </div>
 <div class="col-md-4">
-	Cambiar Direccion de entrega
+	<a href="eliminarcuenta.php"><img class="featurette-image img-responsive" src="../img/eliminarcuenta.fw.png"> </a>
 </div>
-<div class="col-md-4">
-	Eliminar mi cuenta
 </div>
+
 <?php include("piedepagina.php");?>

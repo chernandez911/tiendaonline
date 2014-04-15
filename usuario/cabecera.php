@@ -19,7 +19,7 @@
     <div id="Titulopanel" class="row-fluid">
       <div class="col-md-6">
         <a href="index.php">
-         Bienvenid@ <?php echo ("".$_SESSION["usuario"].""); ?></a>
+         Bienvenid@ <?php echo ("".$_SESSION["nombre"]." ". $_SESSION['apellidos'].""); ?></a>
       </div>
       <div class="col-md-6">
         <div class="col-md-6">  

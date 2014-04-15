@@ -23,13 +23,11 @@
         <div class="navbar-header">
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
             <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
+
           </button>
-          <a class="navbar-brand" href="#">Tienda Online</a>
+          <a class="navbar-brand" href="#">Ferreteria Hernandez</a>
         </div>
-          <div class="navbar-collapse collapse">
+          <div class="navbar-collapse default">
             <ul class="nav navbar-nav">
               <li class="active"><a href="index.php">Inicio</a></li>
               <li><a href="">Nosotros</a></li>
@@ -41,23 +39,45 @@
     </div>
   </div>
 </div>
+<div id="iniciosesion">
+<div class="container">
+<div class="col-md-4 ">
+</div>
+<div class="col-md-4">
+  
+</div>
+<div class="col-md-4 col-xs-12">
+<form class="form-inline" role="form" action="usuario/logeo.php" method="post">
+   <div class="form-group">
+    <label class="sr-only" for="exampleInputEmail2">Email address</label>
+    <input class="form-control" name="user" type="text" required="required" placeholder="Usuario"></input>
+  </div>
+  <div class="form-group">
+    <label class="sr-only" for="exampleInputPassword2">Password</label>
+   <input class="form-control" name="pass" type="password" required="required" placeholder="Contraseña"></input>
+  </div>
+  <button class="btn btn-lg btn-primary btn-block" type="submit">Iniciar Sesión</button>    
+</form>
+</div>
+</div>
+  </div>
 <div id="nosotros">
   <div class="container">
   <div class="row-fluid">
     <div id="divisiones" class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-      <img class="img-circle img-responsive " data-src="holder.js/200x200/auto" alt="Responsive imagen">
+      <img class="img-circle img-responsive " data-src="holder.js/200x200/auto" alt="Conoce sobre nosotros">
       <h2>Nosotros</h2>
       <p>Conozca mas sobre nuestra empresa,nuestros inicio, mision, vision y mas ... </p>
       <p><a class="btn btn-default" href="#" role="button">Ver mas &raquo;</a></p>
     </div><!-- /.col -->
     <div id="divisiones" class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-        <img class="img-circle img-responsive " data-src="holder.js/200x200/auto" alt="Generic placeholder image">
+        <img class="img-circle img-responsive " data-src="holder.js/200x200/auto" alt="Experiencia y calidad">
         <h2>Experiencia y Calidad</h2>
         <p>Llevamos mas de 10 años en el departamento del Meta siendo lideres en el diseño y la construccion de estructuras a gran nivel 
           con los mas altos estandares de calidad...</p>
     </div><!-- /.col -->
     <div id="divisiones" class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-        <img class="img-circle img-responsive " data-src="holder.js/200x200/auto" alt="Generic placeholder image">
+        <img class="img-circle img-responsive " data-src="holder.js/200x200/auto" alt="Productos y Servicios">
         <h2>Productos y Servicios</h2>
         <p>Podras encontrar la mas completa variedad de articulos para sus obras o visitarnos en nuestra tienda online para conocer nuestros productos...</p>
         <p><a class="btn btn-default" href="index2.php" role="button">Ver productos &raquo;</a></p>

@@ -6,7 +6,6 @@
 <div id="enmarcado" class="container">
 <div  class="container">
 <?php
-
 $id=$conn->QSTR($_GET["id"],get_magic_quotes_gpc());
 $consulta=$conn->Execute("SELECT *FROM productos WHERE id_categoria =$id && existencias >0");
 while (!$consulta->EOF){
@@ -29,12 +28,8 @@ echo('<div id="productos" class="row col-xs-12 col-sm-6 col-md-4 col-lg-4">
   </div>
 </div>');
   $consulta2->moveNext();
-
-
-
   $consulta->moveNext();
 }
-
 ?>
 </div>
 </div>

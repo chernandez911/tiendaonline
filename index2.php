@@ -1,12 +1,15 @@
-<?php include"php/cabecera.php" ?>
+<?php 
+include ("php/cabecera.php");
+?>
 <!doctype html>
 <div id="contenedor">
   <div  class="container">
     <?php
+   include("config.php");
       $consulta=$conn->Execute("SELECT *FROM productos WHERE destacado='1' && existencias>0 LIMIT 11");
         while (!$consulta->EOF){
           $consulta2=$conn->Execute("SELECT * FROM imagenesproductos WHERE id_producto='".$consulta->fields['id']."' LIMIT 1;");
-	         $numero = $consulta->fields['precio']; 
+           $numero = $consulta->fields['precio']; 
 
 echo('<div id="productos" class="row col-xs-12 col-sm-6 col-md-4 col-lg-4">
          <div class="paneldestacados col-xs-12 col-sm-6 col-md-4 col-lg-4">');
@@ -24,8 +27,8 @@ echo('          <button value="'.$consulta->fields['id'].'"class="botoncompra bt
           </div>
         </div>
       </div>');
-	$consulta->moveNext();
-	$consulta2->moveNext();
+  $consulta->moveNext();
+  $consulta2->moveNext();
 }
 ?>
 </div>

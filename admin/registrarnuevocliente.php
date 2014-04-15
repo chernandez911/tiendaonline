@@ -1,4 +1,11 @@
-<?php include("cabecera.php"); ?>
+<?php 
+session_start();
+if(!isset($_SESSION['usuario'])) 
+{
+  header('Location: login.php'); 
+  exit();
+}
+include("cabecera.php"); ?>
 
 <div id="contenedor">
 <div  class="container">

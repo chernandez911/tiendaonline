@@ -9,12 +9,24 @@ padding: 50px;
 
 }
 
+#iniciosesion{
+width: 100%;
+height: auto;
+margin-top: 50px;	
+background:#2d2d2d;
+}
+
+#sesion
+{
+
+	margin-left: 60%;
+	width: 450px;
+}
 /* Div de la pagina principal nosotros */
 #nosotros {
 background:#007FFF;
 width: 100%;
 height: auto;
-margin-top: 50px;
 
 }
 

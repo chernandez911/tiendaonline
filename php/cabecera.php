@@ -1,5 +1,4 @@
 <?php 
-error_reporting(E_ALL  and ~ E_NOTICE  and ~ E_DEPRECATED) ;
 session_start();
 if(!isset($_SESSION['contador']))
 { 
@@ -32,9 +31,6 @@ if(!isset($_SESSION['contador']))
             <div class="navbar-header">
               <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                 <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
               </button>
               <a class="navbar-brand" href="#">Productos</a>
             </div>
@@ -56,7 +52,7 @@ if(!isset($_SESSION['contador']))
     <div class="list-group">
        <a class='list-group-item active'>Categorias</a></li>
         <?php 
-        include "./config/config.php";
+        include "config.php";
         $consulta=$conn->Execute("SELECT categoria.id, categoria.nombre_categoria, COUNT(id_categoria)FROM productos 
                   LEFT JOIN categoria ON productos.id_categoria = categoria.id
                   GROUP BY id_categoria ORDER BY COUNT( id_categoria ) DESC");
